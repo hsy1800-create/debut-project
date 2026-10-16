@@ -168,6 +168,7 @@ img { display: block; max-width: 100%; }
 
 .avatar-c { width: 76px; height: 76px; border-radius: 50%; border: 3px solid var(--ink); overflow: hidden; background: var(--ac, #fff); display: grid; place-items: center; flex: none; }
 .avatar-c img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-c img.top { object-position: 50% 0; transform: scale(1.6); transform-origin: 50% 0; }
 .avatar-c svg { width: 118%; height: 118%; margin-top: 18%; }
 .avatar-c.sm { width: 56px; height: 56px; border-width: 2.5px; }
 .avatar-c .emo { font-size: 2.2rem; }

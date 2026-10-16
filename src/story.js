@@ -9,38 +9,38 @@ const GAUGES = [
 ];
 
 const POCAS = {
-  household:  { ch: 1, who: 'iyoung',  word: '가계',     def: '함께 살림하며 주로 소비를 하는 경제 주체예요. 우리 가족이 바로 가계예요.' },
-  firm:       { ch: 1, who: 'minji', word: '기업',     def: '물건과 서비스를 생산해서 이윤을 얻으려는 경제 주체예요.' },
-  market:     { ch: 1, who: 'hyunwoo',  word: '시장',     def: '물건과 서비스를 사고파는 곳이에요. 벼룩시장처럼 눈에 보이는 시장도, 온라인 쇼핑처럼 보이지 않는 시장도 있어요.' },
-  production: { ch: 1, who: 'minhyuk', word: '생산',     def: '생활에 필요한 물건과 서비스를 만들어 내는 일이에요. 노래를 만들고 공연을 여는 것도 생산이에요.' },
-  consumption:{ ch: 1, who: 'iyoung',  word: '소비',     def: '필요한 물건과 서비스를 사서 쓰는 일이에요. 팬이 앨범을 사는 것도 소비예요.' },
-  marketEcon: { ch: 2, who: 'minji', word: '시장 경제', def: '가계와 기업이 자유롭게 경제활동을 하고, 서로 경쟁하는 경제예요. 값은 시장에서 정해져요.' },
-  freedom:    { ch: 2, who: 'hyunwoo',  word: '경제활동의 자유', def: '개인은 직업과 돈 쓸 곳을, 기업은 무엇을 얼마나 만들지를 스스로 정할 수 있어요.' },
-  competition:{ ch: 2, who: 'minji', word: '경쟁',     def: '더 좋은 물건을 더 알맞은 값에 팔려고 서로 겨루는 거예요. 덕분에 소비자는 더 좋은 것을 고를 수 있어요.' },
-  income:     { ch: 3, who: 'iyoung', word: '소득',     def: '일을 하고 받는 돈이에요. 가계는 소득으로 소비도 하고 저축도 해요.' },
-  rational:   { ch: 3, who: 'minhyuk',  word: '합리적 선택', def: '나에게 중요한 기준을 정하고, 정해진 돈으로 가장 큰 만족을 주는 것을 고르는 거예요.' },
-  saving:     { ch: 3, who: 'hyunwoo',  word: '저축',     def: '쓰고 남은 소득을 앞날을 위해 모아 두는 거예요.' },
-  firmChoice: { ch: 4, who: 'minhyuk',  word: '기업의 합리적 선택', def: '무엇을, 얼마나, 어떻게 만들지 정해서 적은 비용으로 큰 이윤을 얻으려는 선택이에요.' },
-  profit:     { ch: 4, who: 'minhyuk', word: '이윤',     def: '기업이 번 돈에서 쓴 돈을 빼고 남은 돈이에요.' },
-  jobs:       { ch: 4, who: 'hyunwoo', word: '일자리',   def: '기업은 일할 곳을 만들어서 가계에 소득을 줘요.' },
-  tax:        { ch: 4, who: 'iyoung',  word: '세금',     def: '나라 살림에 쓰이는 돈이에요. 기업도 세금을 내서 학교, 도로, 공원을 만드는 데 보태요.' },
-  contract:   { ch: 5, who: 'minhyuk',  word: '근로계약서', def: '일하는 시간, 쉬는 날, 임금, 임금 주는 날을 미리 약속해서 적어 두는 문서예요.' },
-  laborLaw:   { ch: 5, who: 'hyunwoo',  word: '근로기준법', def: '근로자가 일할 때 지켜져야 할 기준을 정한 법이에요. 하루 8시간, 일주일 40시간이 기준이에요.' },
-  worker:     { ch: 5, who: 'iyoung', word: '근로자',   def: '일을 하고 그 대가로 임금을 받는 사람이에요.' },
-  workerRights:{ ch: 5, who: 'minji', word: '근로자의 권리', def: '정당한 임금, 알맞은 근로 시간과 휴식, 안전한 일터, 차별받지 않을 권리예요.' },
-  firmFreedom:{ ch: 6, who: 'hyunwoo',  word: '기업의 자유', def: '기업은 무엇을 만들지, 값을 얼마로 할지, 어떻게 팔지 스스로 정할 수 있어요.' },
-  social:     { ch: 6, who: 'minji', word: '사회적 책임', def: '공정한 경쟁, 소비자 안전, 환경 보호처럼 기업이 사회의 한 구성원으로서 지켜야 할 책임이에요.' },
-  ftc:        { ch: 6, who: 'minhyuk',  word: '공정거래위원회', def: '기업들이 공정하게 경쟁하는지 살피고, 짜고 값을 올리는 담합 같은 일을 막는 국가 기관이에요.' },
-  growth:     { ch: 7, who: 'minji', word: '경제성장', def: '한 나라에서 생산하는 물건과 서비스의 양이 늘어나는 거예요.' },
-  industry:   { ch: 7, who: 'iyoung', word: '산업의 변화', def: '우리나라는 경공업에서 중화학 공업으로, 다시 첨단 산업과 서비스 산업으로 성장해 왔어요.' }
+  household:  { ch: 1, who: 'yuha',  word: '가계',     def: '함께 살림하며 주로 소비를 하는 경제 주체예요. 우리 가족이 바로 가계예요.' },
+  firm:       { ch: 1, who: 'serin', word: '기업',     def: '물건과 서비스를 생산해서 이윤을 얻으려는 경제 주체예요.' },
+  market:     { ch: 1, who: 'taeo',  word: '시장',     def: '물건과 서비스를 사고파는 곳이에요. 벼룩시장처럼 눈에 보이는 시장도, 온라인 쇼핑처럼 보이지 않는 시장도 있어요.' },
+  production: { ch: 1, who: 'ian', word: '생산',     def: '생활에 필요한 물건과 서비스를 만들어 내는 일이에요. 노래를 만들고 공연을 여는 것도 생산이에요.' },
+  consumption:{ ch: 1, who: 'yuha',  word: '소비',     def: '필요한 물건과 서비스를 사서 쓰는 일이에요. 팬이 앨범을 사는 것도 소비예요.' },
+  marketEcon: { ch: 2, who: 'serin', word: '시장 경제', def: '가계와 기업이 자유롭게 경제활동을 하고, 서로 경쟁하는 경제예요. 값은 시장에서 정해져요.' },
+  freedom:    { ch: 2, who: 'taeo',  word: '경제활동의 자유', def: '개인은 직업과 돈 쓸 곳을, 기업은 무엇을 얼마나 만들지를 스스로 정할 수 있어요.' },
+  competition:{ ch: 2, who: 'serin', word: '경쟁',     def: '더 좋은 물건을 더 알맞은 값에 팔려고 서로 겨루는 거예요. 덕분에 소비자는 더 좋은 것을 고를 수 있어요.' },
+  income:     { ch: 3, who: 'yuha', word: '소득',     def: '일을 하고 받는 돈이에요. 가계는 소득으로 소비도 하고 저축도 해요.' },
+  rational:   { ch: 3, who: 'ian',  word: '합리적 선택', def: '나에게 중요한 기준을 정하고, 정해진 돈으로 가장 큰 만족을 주는 것을 고르는 거예요.' },
+  saving:     { ch: 3, who: 'taeo',  word: '저축',     def: '쓰고 남은 소득을 앞날을 위해 모아 두는 거예요.' },
+  firmChoice: { ch: 4, who: 'ian',  word: '기업의 합리적 선택', def: '무엇을, 얼마나, 어떻게 만들지 정해서 적은 비용으로 큰 이윤을 얻으려는 선택이에요.' },
+  profit:     { ch: 4, who: 'ian', word: '이윤',     def: '기업이 번 돈에서 쓴 돈을 빼고 남은 돈이에요.' },
+  jobs:       { ch: 4, who: 'taeo', word: '일자리',   def: '기업은 일할 곳을 만들어서 가계에 소득을 줘요.' },
+  tax:        { ch: 4, who: 'yuha',  word: '세금',     def: '나라 살림에 쓰이는 돈이에요. 기업도 세금을 내서 학교, 도로, 공원을 만드는 데 보태요.' },
+  contract:   { ch: 5, who: 'ian',  word: '근로계약서', def: '일하는 시간, 쉬는 날, 임금, 임금 주는 날을 미리 약속해서 적어 두는 문서예요.' },
+  laborLaw:   { ch: 5, who: 'taeo',  word: '근로기준법', def: '근로자가 일할 때 지켜져야 할 기준을 정한 법이에요. 하루 8시간, 일주일 40시간이 기준이에요.' },
+  worker:     { ch: 5, who: 'yuha', word: '근로자',   def: '일을 하고 그 대가로 임금을 받는 사람이에요.' },
+  workerRights:{ ch: 5, who: 'serin', word: '근로자의 권리', def: '정당한 임금, 알맞은 근로 시간과 휴식, 안전한 일터, 차별받지 않을 권리예요.' },
+  firmFreedom:{ ch: 6, who: 'taeo',  word: '기업의 자유', def: '기업은 무엇을 만들지, 값을 얼마로 할지, 어떻게 팔지 스스로 정할 수 있어요.' },
+  social:     { ch: 6, who: 'serin', word: '사회적 책임', def: '공정한 경쟁, 소비자 안전, 환경 보호처럼 기업이 사회의 한 구성원으로서 지켜야 할 책임이에요.' },
+  ftc:        { ch: 6, who: 'ian',  word: '공정거래위원회', def: '기업들이 공정하게 경쟁하는지 살피고, 짜고 값을 올리는 담합 같은 일을 막는 국가 기관이에요.' },
+  growth:     { ch: 7, who: 'serin', word: '경제성장', def: '한 나라에서 생산하는 물건과 서비스의 양이 늘어나는 거예요.' },
+  industry:   { ch: 7, who: 'yuha', word: '산업의 변화', def: '우리나라는 경공업에서 중화학 공업으로, 다시 첨단 산업과 서비스 산업으로 성장해 왔어요.' }
 };
 
 const STORIES = {
-  hyunwoo: { title: '현우의 지갑 속 편지', ch: 2, cond: '2장을 거의 틀리지 않고 끝내면 열려요.', lines: [
-    ['hyunwoo', 'smile', '대표님, 비밀 하나 알려 드릴까요?'],
-    ['hyunwoo', 'normal', '저 지갑에 편지 한 장을 넣고 다녀요. 연습생 때 처음 받은 팬레터예요.'],
-    ['hyunwoo', 'happy', '"현우 님 랩을 들으면 힘이 나요." 딱 이 한 줄이요. 이거 하나로 3년을 버텼어요.'],
-    ['hyunwoo', 'shy', '근데요, 그 편지 쓴 사람이 누군지 아세요? 하늘이예요. 하늘이한텐 아직 비밀이에요!']
+  taeo: { title: '태오의 지갑 속 편지', ch: 2, cond: '2장을 거의 틀리지 않고 끝내면 열려요.', lines: [
+    ['taeo', 'smile', '대표님, 비밀 하나 알려 드릴까요?'],
+    ['taeo', 'normal', '저 지갑에 편지 한 장을 넣고 다녀요. 연습생 때 처음 받은 팬레터예요.'],
+    ['taeo', 'happy', '"태오 님 랩을 들으면 힘이 나요." 딱 이 한 줄이요. 이거 하나로 3년을 버텼어요.'],
+    ['taeo', 'shy', '근데요, 그 편지 쓴 사람이 누군지 아세요? 하늘이예요. 하늘이한텐 아직 비밀이에요!']
   ]},
   haneul: { title: '하늘이가 처음 만난 날', ch: 3, cond: '3장을 거의 틀리지 않고 끝내면 열려요.', lines: [
     ['haneul', 'normal', '사실 나 처음엔 {group:을} 몰랐어.'],
@@ -48,22 +48,22 @@ const STORIES = {
     ['haneul', 'smile', '관객은 나 하나였어. 그런데도 끝까지 웃으면서 불러 줬어.'],
     ['haneul', 'happy', '그날부터 용돈 기입장 맨 위에 적어 둬. "{group} 데뷔하면 앨범 사기."']
   ]},
-  minhyuk: { title: '민혁의 거스름돈 프로그램', ch: 4, cond: '4장 예산 나누기를 한 번에 성공하면 열려요.', lines: [
-    ['minhyuk', 'normal', '대표님, 저 예전에 숫자 계산이 어렵다는 친구를 위해 거스름돈 계산 프로그램을 만든 적이 있어요.'],
-    ['minhyuk', 'happy', '가진 돈에서 물건값을 빼면 거스름돈. 블록 몇 개면 끝나요.'],
-    ['minhyuk', 'serious', '그런데 그때 알았어요. 돈 계산은 결국 "어디에 쓸까"를 정하는 일이라는 걸요.'],
-    ['minhyuk', 'happy', '오늘 대표님 예산표, 제 프로그램보다 훨씬 똑똑했어요.']
+  ian: { title: '이안의 거스름돈 프로그램', ch: 4, cond: '4장 예산 나누기를 한 번에 성공하면 열려요.', lines: [
+    ['ian', 'normal', '대표님, 저 예전에 숫자 계산이 어렵다는 친구를 위해 거스름돈 계산 프로그램을 만든 적이 있어요.'],
+    ['ian', 'happy', '가진 돈에서 물건값을 빼면 거스름돈. 블록 몇 개면 끝나요.'],
+    ['ian', 'serious', '그런데 그때 알았어요. 돈 계산은 결국 "어디에 쓸까"를 정하는 일이라는 걸요.'],
+    ['ian', 'happy', '오늘 대표님 예산표, 제 프로그램보다 훨씬 똑똑했어요.']
   ]},
-  iyoung: { title: '이영이 그만두려던 날', ch: 5, cond: '5장 일정 짜기를 한 번에 성공하면 열려요.', lines: [
-    ['iyoung', 'think', '대표님, 저 사실 연습생을 그만두려고 짐까지 싼 적이 있어요.'],
-    ['iyoung', 'tired', '남들보다 늦게 시작해서, 하루라도 쉬면 뒤처질까 봐 무서웠거든요.'],
-    ['iyoung', 'think', '그때 삼촌 대표님이 그러셨어요. "이영아, 쉬는 것도 연습이다."'],
-    ['iyoung', 'happy', '오늘 대표님이 똑같은 말을 하셔서… 조금 울 뻔했어요. 비밀이에요.']
+  yuha: { title: '유하가 그만두려던 날', ch: 5, cond: '5장 일정 짜기를 한 번에 성공하면 열려요.', lines: [
+    ['yuha', 'think', '대표님, 저 사실 연습생을 그만두려고 짐까지 싼 적이 있어요.'],
+    ['yuha', 'tired', '남들보다 늦게 시작해서, 하루라도 쉬면 뒤처질까 봐 무서웠거든요.'],
+    ['yuha', 'think', '그때 삼촌 대표님이 그러셨어요. "유하야, 쉬는 것도 연습이다."'],
+    ['yuha', 'happy', '오늘 대표님이 똑같은 말을 하셔서… 조금 울 뻔했어요. 비밀이에요.']
   ]},
-  minji: { title: '민지의 바닷가', ch: 6, cond: '6장 판정과 담합 거절을 모두 한 번에 해내면 열려요.', lines: [
-    ['minji', 'normal', '저 환경 동아리였어요. 바닷가에서 쓰레기를 줍는데, 버려진 앨범 포장이 잔뜩 나왔어요.'],
-    ['minji', 'angry', '그때 다짐했어요. 내가 데뷔하면 쓰레기가 남지 않는 앨범을 만들겠다고.'],
-    ['minji', 'happy', '대표님이 그 다짐을 지켜 주셨네요. 고마워요. 이건 진심이에요.']
+  serin: { title: '세린의 바닷가', ch: 6, cond: '6장 판정과 담합 거절을 모두 한 번에 해내면 열려요.', lines: [
+    ['serin', 'normal', '저 환경 동아리였어요. 바닷가에서 쓰레기를 줍는데, 버려진 앨범 포장이 잔뜩 나왔어요.'],
+    ['serin', 'angry', '그때 다짐했어요. 내가 데뷔하면 쓰레기가 남지 않는 앨범을 만들겠다고.'],
+    ['serin', 'happy', '대표님이 그 다짐을 지켜 주셨네요. 고마워요. 이건 진심이에요.']
   ]},
   oh: { title: '오실장과 삼촌의 첫 사무실', ch: 7, cond: '엔딩까지 가면 열려요.', lines: [
     ['oh', 'normal', '대표님, 이 회사가 처음 생긴 날 얘기 해 드릴까요?'],
@@ -93,11 +93,11 @@ const CHAPTERS = [
     ]},
     { type: 'names' },
     { type: 'scene', bg: 'practice', label: '프롤로그', lines: [
-      ['minji', 'happy', '안녕하세요, {ceo} 대표님! 리더 민지예요. 춤을 맡고 있고, 할 말은 하는 편이에요.'],
-      ['iyoung', 'smile', '메인보컬 이영이에요. 아파도 연습은 절대 안 빠져요!'],
-      ['hyunwoo', 'happy', '현우요! 랩이랑 팬 소통 담당이에요. 대표님, 잘 부탁드려요!'],
-      ['minhyuk', 'normal', '…민혁입니다. 작곡이랑 숫자 계산은 저한테 맡기세요.'],
-      ['minji', 'normal', '솔직하게 말할게요. 우리 회사, 진짜 위험해요. 그래도 {group:은} 꼭 데뷔할 거예요.'],
+      ['serin', 'happy', '안녕하세요, {ceo} 대표님! 리더 세린이에요. 춤을 맡고 있고, 할 말은 하는 편이에요.'],
+      ['yuha', 'smile', '메인보컬 유하예요. 아파도 연습은 절대 안 빠져요!'],
+      ['taeo', 'happy', '태오요! 랩이랑 팬 소통 담당이에요. 대표님, 잘 부탁드려요!'],
+      ['ian', 'normal', '…이안입니다. 작곡이랑 숫자 계산은 저한테 맡기세요.'],
+      ['serin', 'normal', '솔직하게 말할게요. 우리 회사, 진짜 위험해요. 그래도 {group:은} 꼭 데뷔할 거예요.'],
       ['oh', 'normal', '자, 대표님. 회사를 살리려면 먼저 돈이 어디서 들어오고 어디로 나가는지 알아야 해요.']
     ]},
     { type: 'scene', bg: 'office', lines: [
@@ -105,21 +105,21 @@ const CHAPTERS = [
       ['oh', 'smile', '가계는 함께 살림하며 주로 소비를 하는 곳이에요. 대표님네 집도, 팬들의 집도 가계예요.'],
       ['oh', 'smile', '기업은 물건이나 서비스를 생산해서 이윤을 얻으려는 곳이에요.'],
       ['oh', 'normal', '그리고 가계와 기업이 물건과 서비스를 사고파는 곳을 시장이라고 해요.'],
-      ['minhyuk', 'serious', '대표님, 우리 회사랑 이어진 곳들을 카드로 정리해 봤어요. 어디에 속하는지 나눠 주세요.']
+      ['ian', 'serious', '대표님, 우리 회사랑 이어진 곳들을 카드로 정리해 봤어요. 어디에 속하는지 나눠 주세요.']
     ]},
-    { type: 'mission', id: '1-1', kind: 'sort', title: '나눠 담기', who: 'minhyuk', mood: 'serious',
+    { type: 'mission', id: '1-1', kind: 'sort', title: '나눠 담기', who: 'ian', mood: 'serious',
       prompt: '카드를 하나 누르고, 알맞은 상자를 눌러 담아 주세요.',
       gauge: 'trust', pocas: ['household', 'firm', 'market'], layout: 'bins3',
       bins: [{ id: 'h', label: '가계' }, { id: 'f', label: '기업' }, { id: 'm', label: '시장' }],
       cards: [
         { id: 'a', text: '하늘이네 가족', ans: 'h', hint: '하늘이네 가족은 함께 살림하며 물건을 사서 쓰는 곳이에요.' },
-        { id: 'b', text: '민지네 부모님 댁', ans: 'h', hint: '민지네 부모님 댁도 함께 살림하는 집이에요.' },
+        { id: 'b', text: '세린네 부모님 댁', ans: 'h', hint: '세린네 부모님 댁도 함께 살림하는 집이에요.' },
         { id: 'c', text: '우리 반짝엔터', ans: 'f', hint: '우리 회사는 노래와 공연을 만들어 이윤을 얻으려는 곳이에요.' },
         { id: 'd', text: '응원봉 만드는 공장', ans: 'f', hint: '공장은 응원봉을 생산해서 파는 곳이에요.' },
         { id: 'e', text: '팬들이 앨범을 사고파는 온라인 쇼핑', ans: 'm', hint: '사고파는 일이 일어나는 곳이에요. 눈에 보이지 않는 시장이죠.' },
         { id: 'f', text: '주말마다 중고 앨범을 사고파는 벼룩시장', ans: 'm', hint: '여러 사람이 모여 사고파는 곳이에요. 눈에 보이는 시장이죠.' }
       ],
-      ok: [['minhyuk', 'happy', '완벽해요. 가계, 기업, 시장이 한눈에 보이네요.']]
+      ok: [['ian', 'happy', '완벽해요. 가계, 기업, 시장이 한눈에 보이네요.']]
     },
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'normal', '이제 이 셋 사이에 무엇이 오가는지 볼까요? 화살표마다 알맞은 말을 넣어 주세요.']
@@ -145,25 +145,25 @@ const CHAPTERS = [
       ]
     },
     { type: 'scene', bg: 'practice', lines: [
-      ['hyunwoo', 'shy', '어? 잠깐만요, 대표님. 그럼 저는요?']
+      ['taeo', 'shy', '어? 잠깐만요, 대표님. 그럼 저는요?']
     ]},
-    { type: 'mission', id: '1-3', kind: 'choice', title: '함정 문제', who: 'hyunwoo', mood: 'shy',
+    { type: 'mission', id: '1-3', kind: 'choice', title: '함정 문제', who: 'taeo', mood: 'shy',
       prompt: '"대표님, 그럼 저는 가계예요, 기업이에요?"',
       gauge: 'trust', pocas: [],
       options: [
-        { text: '현우는 기업이에요. 회사에서 일하니까요.', why: [['hyunwoo', 'shy', '음… 그런데 연습 끝나고 집에 가면 저도 엄마랑 장 보러 가는데요?']] },
-        { text: '현우는 가계예요. 회사랑은 상관없어요.', why: [['hyunwoo', 'shy', '그럼 제가 매일 회사에서 연습하고 받는 임금은요?']] },
-        { text: '현우네 가족은 가계이고, 현우는 그 가계의 구성원이면서 기업에서 일하는 사람이에요.', correct: true }
+        { text: '태오는 기업이에요. 회사에서 일하니까요.', why: [['taeo', 'shy', '음… 그런데 연습 끝나고 집에 가면 저도 엄마랑 장 보러 가는데요?']] },
+        { text: '태오는 가계예요. 회사랑은 상관없어요.', why: [['taeo', 'shy', '그럼 제가 매일 회사에서 연습하고 받는 임금은요?']] },
+        { text: '태오네 가족은 가계이고, 태오는 그 가계의 구성원이면서 기업에서 일하는 사람이에요.', correct: true }
       ],
-      ok: [['hyunwoo', 'happy', '아하! 집에서는 가계의 구성원, 회사에서는 기업에서 일하는 사람이 되는 거네요.']]
+      ok: [['taeo', 'happy', '아하! 집에서는 가계의 구성원, 회사에서는 기업에서 일하는 사람이 되는 거네요.']]
     },
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'smile', '정리해 볼게요. 돈은 팬에게서 들어오고, 그 돈으로 멤버와 직원에게 임금을 드리는 거예요.'],
       ['oh', 'worried', '그런데 대표님… 통장엔 아직 50만 원뿐이에요.']
     ]},
     { type: 'scene', bg: 'office', preview: true, lines: [
-      ['narr', '', '다음 날 아침, 현우가 휴대폰을 들고 사무실로 뛰어 들어왔습니다.'],
-      ['hyunwoo', 'shy', '대표님! 큰일 났어요! 메가톤엔터가 우리 쇼케이스랑 같은 날 공연한대요!']
+      ['narr', '', '다음 날 아침, 태오가 휴대폰을 들고 사무실로 뛰어 들어왔습니다.'],
+      ['taeo', 'shy', '대표님! 큰일 났어요! 메가톤엔터가 우리 쇼케이스랑 같은 날 공연한대요!']
     ]},
     { type: 'end' }
   ]
@@ -175,13 +175,13 @@ const CHAPTERS = [
     { type: 'scene', bg: 'street', lines: [
       ['kang', 'smile', '아, 옆 건물 새 대표님이시구나. 저는 메가톤엔터 대표 강태산입니다.'],
       ['kang', 'smirk', '작은 회사는 금방 사라지는 법이죠. 같은 날 공연이라니, 재밌겠네요.'],
-      ['minji', 'angry', '…저 사람, 일부러 같은 날로 잡은 거예요.'],
+      ['serin', 'angry', '…저 사람, 일부러 같은 날로 잡은 거예요.'],
       ['oh', 'normal', '대표님, 우리나라는 시장 경제예요. 누구나 자유롭게 회사를 차리고, 서로 경쟁할 수 있어요.'],
       ['oh', 'smile', '메가톤도 자유롭게 공연을 열 수 있다는 뜻이죠. 우리는 우리 쇼케이스 티켓값부터 정해 봐요.']
     ]},
     { type: 'mission', id: '2-1', kind: 'steps', title: '티켓값 정하기', gauge: 'money', pocas: ['marketEcon'],
       steps: [
-        { kind: 'price', who: 'minhyuk', mood: 'serious',
+        { kind: 'price', who: 'ian', mood: 'serious',
           prompt: '팬 10명이 "이 값까지는 낼 수 있어요"라고 알려 줬어요. 값을 바꿔 가며, 수입이 가장 큰 티켓값을 찾아 정해 주세요.',
           fans: [5000, 10000, 10000, 15000, 20000, 20000, 25000, 30000, 30000, 40000],
           prices: [5000, 10000, 15000, 20000, 25000, 30000, 40000], answer: 20000 },
@@ -197,18 +197,18 @@ const CHAPTERS = [
     },
     { type: 'scene', bg: 'office', lines: [
       ['narr', '', '며칠 뒤, 메가톤엔터가 티켓값을 1만 5천 원으로 내렸습니다. 공연장도 우리보다 두 배나 큽니다.'],
-      ['hyunwoo', 'sad', '대표님… 팬 두 명이 메가톤 공연으로 간대요.'],
-      ['minji', 'angry', '가만히 있을 순 없어요. 어떻게 맞설지 정해 주세요.']
+      ['taeo', 'sad', '대표님… 팬 두 명이 메가톤 공연으로 간대요.'],
+      ['serin', 'angry', '가만히 있을 순 없어요. 어떻게 맞설지 정해 주세요.']
     ]},
-    { type: 'mission', id: '2-2', kind: 'multi', title: '메가톤의 반격', who: 'minji', mood: 'angry',
+    { type: 'mission', id: '2-2', kind: 'multi', title: '메가톤의 반격', who: 'serin', mood: 'angry',
       prompt: '어떻게 맞설까요? 알맞은 방법을 모두 골라 주세요.',
       gauge: 'fans', pocas: ['freedom'],
       options: [
         { text: '노래와 무대를 더 좋게 준비한다', correct: true },
         { text: '공연이 끝난 뒤 팬과 만나는 시간을 더한다', correct: true },
         { text: '티켓값을 조금 내린다', correct: true },
-        { text: '메가톤 그룹에 대한 나쁜 소문을 퍼뜨린다', why: [['hyunwoo', 'shy', '대표님, 그건 경쟁이 아니라 반칙이에요!']] },
-        { text: '팬들에게 메가톤 공연에는 가지 말라고 한다', why: [['minji', 'normal', '팬들도 어느 공연에 갈지 스스로 고를 자유가 있어요.']] }
+        { text: '메가톤 그룹에 대한 나쁜 소문을 퍼뜨린다', why: [['taeo', 'shy', '대표님, 그건 경쟁이 아니라 반칙이에요!']] },
+        { text: '팬들에게 메가톤 공연에는 가지 말라고 한다', why: [['serin', 'normal', '팬들도 어느 공연에 갈지 스스로 고를 자유가 있어요.']] }
       ],
       missing: [['oh', 'normal', '좋은 방법이 더 있어요. 반칙이 아니라면 무엇이든 해 볼 수 있어요.']],
       ok: [['oh', 'smile', '좋아요. 기업은 무엇을 어떻게 만들지 자유롭게 정할 수 있어요. 팬도 어디에 돈을 쓸지 자유롭게 고르고요.']]
@@ -224,13 +224,13 @@ const CHAPTERS = [
         { text: '결국 한 회사만 남는다', why: [['oh', 'normal', '공정하게 경쟁하면 여러 회사가 함께 노력하게 돼요.']] }
       ],
       missing: [['oh', 'normal', '하늘이에게 좋은 일이 더 있어요. 다시 살펴볼까요?']],
-      ok: [['hyunwoo', 'happy', '대표님, 팬들이 우리 무대를 기다린대요! 공연 끝나고 만나는 시간 덕분인가 봐요!']]
+      ok: [['taeo', 'happy', '대표님, 팬들이 우리 무대를 기다린대요! 공연 끝나고 만나는 시간 덕분인가 봐요!']]
     },
     { type: 'scene', bg: 'office', preview: true, lines: [
       ['narr', '', '그날 저녁, 사무실 우편함에 꾹꾹 눌러 쓴 손편지 한 통이 들어 있었습니다.'],
       ['letter', '', '안녕하세요. 저는 6학년 하늘이에요. {group} 데뷔하면 다 사고 싶은데… 제 용돈으로는 다 못 사요.']
     ]},
-    { type: 'end', story: 'hyunwoo' }
+    { type: 'end', story: 'taeo' }
   ]
 },
 /* ---------------- 3장 ---------------- */
@@ -255,11 +255,11 @@ const CHAPTERS = [
     },
     { type: 'scene', bg: 'room', lines: [
       ['narr', '', '그때 휴대폰이 울렸습니다. {group} 공식 계정에서 온 답장이었어요!'],
-      ['minhyuk', 'happy', '하늘아, 편지 고마워! 나 민혁이야. 숫자 계산이라면 자신 있어.'],
-      ['minhyuk', 'serious', '고를 땐 먼저 나한테 중요한 기준을 정해 봐. 그다음 정해진 돈 안에서 만족이 가장 큰 걸 고르는 거야.'],
-      ['haneul', 'happy', '민혁 님이 답장을…! 좋아, 기준표를 만들어 보자!']
+      ['ian', 'happy', '하늘아, 편지 고마워! 나 이안이야. 숫자 계산이라면 자신 있어.'],
+      ['ian', 'serious', '고를 땐 먼저 나한테 중요한 기준을 정해 봐. 그다음 정해진 돈 안에서 만족이 가장 큰 걸 고르는 거야.'],
+      ['haneul', 'happy', '이안 님이 답장을…! 좋아, 기준표를 만들어 보자!']
     ]},
-    { type: 'mission', id: '3-2', kind: 'shop', title: '선택 기준표', who: 'minhyuk', mood: 'happy',
+    { type: 'mission', id: '3-2', kind: 'shop', title: '선택 기준표', who: 'ian', mood: 'happy',
       prompt: '① 나에게 중요한 기준 2개 고르기  ② 3만 원 안에서 살 것 고르기  ③ 고른 까닭 고르기',
       gauge: 'fans', pocas: ['rational'], budget: 30000,
       criteria: [
@@ -279,9 +279,9 @@ const CHAPTERS = [
         { text: '꼭 필요한 것부터 먼저 샀어', crit: 'need' },
         { text: '내가 가장 행복해질 것 같아서', crit: 'joy' },
         { text: '오래 두고 쓸 수 있어서', crit: 'long' },
-        { text: '친구가 사라고 해서', crit: null, why: [['minhyuk', 'serious', '내 기준으로 고른 게 아니면 나중에 후회할 수도 있어. 내가 정한 기준을 다시 볼까?']] }
+        { text: '친구가 사라고 해서', crit: null, why: [['ian', 'serious', '내 기준으로 고른 게 아니면 나중에 후회할 수도 있어. 내가 정한 기준을 다시 볼까?']] }
       ],
-      ok: [['minhyuk', 'happy', '멋지다, 하늘아! 기준을 정하고 그 기준대로 골랐으니 합리적 선택이야. 정답은 사람마다 다를 수 있어.']]
+      ok: [['ian', 'happy', '멋지다, 하늘아! 기준을 정하고 그 기준대로 골랐으니 합리적 선택이야. 정답은 사람마다 다를 수 있어.']]
     },
     { type: 'scene', bg: 'room', lines: [
       ['haneul', 'worried', '그런데 친구 수아는 랜덤 포카를 모으려고 같은 앨범을 다섯 장이나 산대. 10만 원이래!']
@@ -290,9 +290,9 @@ const CHAPTERS = [
       prompt: '수아의 선택이 합리적인지 따져 보는 가장 좋은 방법은 무엇일까요?',
       gauge: 'rep', pocas: ['saving'],
       options: [
-        { text: '많이 살수록 무조건 합리적이다', why: [['minhyuk', 'serious', '많이 산다고 만족이 그만큼 커지는 건 아니야. 같은 앨범 다섯 장이면 노래는 똑같잖아.']] },
+        { text: '많이 살수록 무조건 합리적이다', why: [['ian', 'serious', '많이 산다고 만족이 그만큼 커지는 건 아니야. 같은 앨범 다섯 장이면 노래는 똑같잖아.']] },
         { text: '같은 돈으로 더 큰 만족을 주는 다른 선택은 없는지 따져 본다. 한 장만 사고 남은 돈은 저축할 수도 있다.', correct: true },
-        { text: '친구들이 다 사니까 따라 사는 게 합리적이다', why: [['minhyuk', 'serious', '다른 사람 기준이 아니라 내 기준으로 골라야 해.']] }
+        { text: '친구들이 다 사니까 따라 사는 게 합리적이다', why: [['ian', 'serious', '다른 사람 기준이 아니라 내 기준으로 골라야 해.']] }
       ],
       ok: [['haneul', 'smile', '그렇구나. 남은 돈을 저축해 두면 다음에 정말 갖고 싶은 걸 살 수 있겠다!']]
     },
@@ -314,27 +314,27 @@ const CHAPTERS = [
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'happy', '대표님! 5천만 원이에요! 이제 데뷔 준비를 제대로 할 수 있어요.'],
       ['oh', 'normal', '기업은 무엇을, 얼마나, 어떻게 만들지 스스로 정해요. 적은 비용으로 큰 이윤을 얻을 수 있게 따져 보면서요.'],
-      ['minhyuk', 'serious', '항목별 견적을 뽑아 왔어요. 모두 "보통"으로 하면 딱 5천만 원이에요.']
+      ['ian', 'serious', '항목별 견적을 뽑아 왔어요. 모두 "보통"으로 하면 딱 5천만 원이에요.']
     ]},
     { type: 'mission', id: '4-1', kind: 'steps', title: '예산 나누기', gauge: 'money', pocas: ['firmChoice', 'profit'],
       steps: [
-        { kind: 'budget', who: 'minhyuk', mood: 'serious',
+        { kind: 'budget', who: 'ian', mood: 'serious',
           prompt: '항목마다 적게, 보통, 많이 가운데 하나를 골라 주세요. 한 곳에 더 쓰려면 다른 곳을 줄여야 해요.',
           budget: 5000,
           items: [
-            { id: 'song', text: '노래 만들기', icon: '🎵', costs: [500, 1000, 2000], min: 1, why: [['minhyuk', 'serious', '대표님, 우리가 파는 건 결국 노래예요. 노래는 보통 이상이어야 해요.']] },
-            { id: 'dance', text: '안무와 무대 연습', icon: '💃', costs: [300, 600, 1000], min: 1, why: [['minji', 'worried', '안무 연습이 부족하면 무대에서 실수할 거예요. 보통 이상은 돼야 해요.']] },
+            { id: 'song', text: '노래 만들기', icon: '🎵', costs: [500, 1000, 2000], min: 1, why: [['ian', 'serious', '대표님, 우리가 파는 건 결국 노래예요. 노래는 보통 이상이어야 해요.']] },
+            { id: 'dance', text: '안무와 무대 연습', icon: '💃', costs: [300, 600, 1000], min: 1, why: [['serin', 'worried', '안무 연습이 부족하면 무대에서 실수할 거예요. 보통 이상은 돼야 해요.']] },
             { id: 'mv', text: '뮤직비디오', icon: '🎬', costs: [500, 1000, 2000] },
             { id: 'outfit', text: '무대 의상', icon: '👗', costs: [200, 400, 800] },
             { id: 'ad', text: '광고', icon: '📣', costs: [500, 1000, 2000] },
             { id: 'staff', text: '스태프 뽑기', icon: '🧑‍💼', costs: [500, 1000, 1500] }
           ],
-          over: [['minhyuk', 'worried', '대표님, 5천만 원을 넘었어요. 어딘가를 줄여야 해요.']] },
+          over: [['ian', 'worried', '대표님, 5천만 원을 넘었어요. 어딘가를 줄여야 해요.']] },
         { kind: 'choice', who: 'oh', mood: 'normal',
           prompt: '이렇게 나눈 까닭은 무엇인가요?',
           options: [
             { text: '적은 비용으로 큰 이윤을 얻으려고', correct: true },
-            { text: '돈을 최대한 빨리 다 쓰려고', why: [['minhyuk', 'worried', '빨리 쓰는 게 목표면 회사가 금방 어려워져요.']] },
+            { text: '돈을 최대한 빨리 다 쓰려고', why: [['ian', 'worried', '빨리 쓰는 게 목표면 회사가 금방 어려워져요.']] },
             { text: '메가톤보다 무조건 많이 쓰려고', why: [['oh', 'normal', '많이 쓴다고 이윤이 커지는 건 아니에요. 따져서 써야 해요.']] }
           ] }
       ],
@@ -363,40 +363,40 @@ const CHAPTERS = [
     },
     { type: 'scene', bg: 'office', lines: [
       ['narr', '', '첫 음원이 나오고, 처음으로 수입이 생겼습니다!'],
-      ['hyunwoo', 'happy', '대표님, 우리 노래가 음원 사이트에 올라갔어요!'],
-      ['minhyuk', 'worried', '그런데… 세금 고지서도 같이 왔어요.']
+      ['taeo', 'happy', '대표님, 우리 노래가 음원 사이트에 올라갔어요!'],
+      ['ian', 'worried', '그런데… 세금 고지서도 같이 왔어요.']
     ]},
-    { type: 'mission', id: '4-3', kind: 'choice', title: '세금 고지서', who: 'minhyuk', mood: 'worried',
+    { type: 'mission', id: '4-3', kind: 'choice', title: '세금 고지서', who: 'ian', mood: 'worried',
       prompt: '기업이 낸 세금은 어디에 쓰일까요?',
       gauge: 'rep', pocas: ['tax'],
       options: [
         { text: '학교, 도로, 공원처럼 모두가 함께 쓰는 곳', correct: true },
-        { text: '대표님 개인 용돈', why: [['minhyuk', 'serious', '세금은 나라 살림에 쓰이는 돈이에요. 대표님 용돈이 아니에요.']] },
+        { text: '대표님 개인 용돈', why: [['ian', 'serious', '세금은 나라 살림에 쓰이는 돈이에요. 대표님 용돈이 아니에요.']] },
         { text: '세금은 안 내도 돼요. 숨기면 돼요.', why: [['oh', 'worried', '세금을 숨기면 법을 어기는 거예요. 세금을 내는 것도 기업이 하는 중요한 일이에요.']] }
       ],
       ok: [['oh', 'smile', '기업은 물건과 서비스를 만들고, 일자리를 만들고, 세금도 내요. 우리 회사도 이제 진짜 기업이네요.']]
     },
     { type: 'scene', bg: 'night', preview: true, lines: [
       ['narr', '', '데뷔 2주 전, 새벽 3시. 연습실 불이 아직 켜져 있었습니다.'],
-      ['iyoung', 'tired', '콜록콜록… 한 번만… 딱 한 번만 더…']
+      ['yuha', 'tired', '콜록콜록… 한 번만… 딱 한 번만 더…']
     ]},
-    { type: 'end', story: 'minhyuk' }
+    { type: 'end', story: 'ian' }
   ]
 },
 /* ---------------- 5장 ---------------- */
 {
-  no: 5, title: '이영이가 쓰러졌다', topic: '근로자의 권리',
+  no: 5, title: '유하가 쓰러졌다', topic: '근로자의 권리',
   nodes: [
     { type: 'cut', img: 'cut_lab', lines: [
-      ['narr', '', '데뷔 2주 전. 이영은 며칠째 감기에 걸렸지만 연습을 하루도 쉬지 않았습니다.']
+      ['narr', '', '데뷔 2주 전. 유하는 며칠째 감기에 걸렸지만 연습을 하루도 쉬지 않았습니다.']
     ]},
     { type: 'cut', img: 'cut_cough', lines: [
-      ['minhyuk', 'worried', '이영아, 오늘은 무리하지 마. 그냥 내일 연습해도…'],
-      ['iyoung', 'tired', '괜찮아. 나 혼자 뒤처져서 피해 주기 싫어.']
+      ['ian', 'worried', '유하야, 오늘은 그만 쉬자. 목소리 다 상하겠어.'],
+      ['yuha', 'tired', '괜찮아. 데뷔 전에 나만 뒤처질 순 없어.']
     ]},
     { type: 'scene', bg: 'night', lines: [
-      ['narr', '', '쿵! 그날 밤, 연습실에서 이영이 쓰러졌습니다.'],
-      ['minji', 'surprised', '이영아! 정신 차려!'],
+      ['narr', '', '쿵! 그날 밤, 연습실에서 유하가 쓰러졌습니다.'],
+      ['serin', 'surprised', '유하야! 정신 차려!'],
       ['narr', '', '다행히 크게 다치진 않았지만, 의사 선생님은 적어도 사흘은 푹 쉬어야 한다고 했습니다.']
     ]},
     { type: 'scene', bg: 'office', lines: [
@@ -424,7 +424,6 @@ const CHAPTERS = [
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'normal', '근로기준법에서는 쉬는 시간을 빼고 하루 8시간, 일주일 40시간을 기준으로 정해요.'],
       ['oh', 'normal', '그리고 일주일에 하루 이상은 꼭 쉬는 날이 있어야 해요.'],
-      ['oh', 'worried', '우리 멤버들처럼 청소년은 일할 수 있는 시간이 법으로 더 짧게 정해져 있고, 밤늦게 일하는 것도 막혀 있어요.'],
       ['jisu', 'worried', '지금 제 일정은 월요일부터 토요일까지, 하루 13시간이에요…']
     ]},
     { type: 'mission', id: '5-2', kind: 'schedule', title: '일주일 일정 다시 짜기', who: 'jisu', mood: 'worried',
@@ -433,7 +432,7 @@ const CHAPTERS = [
       hours: [6, 8, 10, 13], days: [4, 5, 6, 7], start: { hours: 13, days: 6 },
       ok: [
         ['oh', 'smile', '더 일해야 할 때는 지수 씨가 동의해야 하고, 더 일한 만큼 돈도 더 드려야 해요.'],
-        ['minji', 'happy', '대표님, 저희 연습 일정에도 쉬는 시간이랑 쉬는 날을 넣었어요. 이영이도 이제 밤에는 집에 가요.']
+        ['serin', 'happy', '대표님, 저희 연습 일정에도 쉬는 시간이랑 쉬는 날을 넣었어요. 유하도 이제 밤에는 집에 가요.']
       ]
     },
     { type: 'scene', bg: 'office', lines: [
@@ -453,16 +452,16 @@ const CHAPTERS = [
         { id: 'g', text: '근로계약서 꼼꼼히 읽기', ans: 'me', hint: '계약서를 읽고 확인하는 건 근로자 스스로 할 일이에요.' },
         { id: 'h', text: '노동조합', ans: 'me', hint: '노동조합은 근로자들이 스스로 모여 만든 단체예요.' }
       ],
-      ok: [['minji', 'happy', '법과 정부, 기업, 근로자 스스로가 함께 지키는 거네요.']]
+      ok: [['serin', 'happy', '법과 정부, 기업, 근로자 스스로가 함께 지키는 거네요.']]
     },
     { type: 'scene', bg: 'practice', lines: [
-      ['iyoung', 'happy', '대표님, 덕분에 푹 쉬었어요. 쉬고 나니까 목소리가 더 잘 나와요!'],
+      ['yuha', 'happy', '대표님, 덕분에 푹 쉬었어요. 쉬고 나니까 목소리가 더 잘 나와요!'],
       ['jisu', 'smile', '저도 이제 저녁엔 집에 가요. 계약서도 받았고요!']
     ]},
     { type: 'scene', bg: 'office', preview: true, lines: [
       ['narr', '', '데뷔 일주일 전. 대표 책상 위에 봉투 세 개가 놓여 있었습니다.']
     ]},
-    { type: 'end', story: 'iyoung' }
+    { type: 'end', story: 'yuha' }
   ]
 },
 /* ---------------- 6장 ---------------- */
@@ -481,10 +480,10 @@ const CHAPTERS = [
       cards: [
         { id: 'a', who: 'na', text: '봉투 ① 나과장: "이 응원봉을 사면 키가 쑥쑥 큰다고 광고하면 대박 납니다! 사실이 아니어도 다들 믿어요."', ans: 'bad', hint: '사실이 아닌 광고로 소비자를 속이는 건 책임을 어기는 거예요.' },
         { id: 'b', who: 'kang', text: '봉투 ② 강대표: "우리 둘 다 티켓값을 10만 원으로 똑같이 올립시다. 팬들은 어차피 살 거예요."', ans: 'bad', hint: '기업끼리 짜고 값을 올리면 공정한 경쟁이 사라져요.' },
-        { id: 'c', who: 'minji', text: '봉투 ③ 민지: "앨범 포장을 다시 쓸 수 있는 종이로 바꾸고, 포카는 원하는 멤버를 골라 살 수 있게 해요."', ans: 'good', hint: '환경을 지키고 소비자를 배려하는 건 책임을 다하는 거예요.' },
+        { id: 'c', who: 'serin', text: '봉투 ③ 세린: "앨범 포장을 다시 쓸 수 있는 종이로 바꾸고, 포카는 원하는 멤버를 골라 살 수 있게 해요."', ans: 'good', hint: '환경을 지키고 소비자를 배려하는 건 책임을 다하는 거예요.' },
         { id: 'd', who: 'oh', text: '오실장 메모: "새 앨범 콘셉트를 우주 여행으로 할지 학교로 할지는 우리가 정하면 돼요."', ans: 'free', hint: '무엇을 만들지 스스로 정하는 건 기업의 자유예요.' }
       ],
-      ok: [['minji', 'happy', '대표님 덕분에 떳떳하게 무대에 설 수 있겠어요!']]
+      ok: [['serin', 'happy', '대표님 덕분에 떳떳하게 무대에 설 수 있겠어요!']]
     },
     { type: 'scene', bg: 'office', lines: [
       ['narr', '', '그날 오후, 강대표에게서 전화가 걸려 왔습니다.'],
@@ -526,7 +525,7 @@ const CHAPTERS = [
     { type: 'scene', bg: 'stage', preview: true, lines: [
       ['narr', '', '드디어 데뷔 당일. 무대 뒤에서 네 사람이 손을 모았습니다.']
     ]},
-    { type: 'end', story: 'minji' }
+    { type: 'end', story: 'serin' }
   ]
 },
 /* ---------------- 7장 ---------------- */
@@ -535,13 +534,13 @@ const CHAPTERS = [
   nodes: [
     { type: 'scene', bg: 'stage', lines: [
       ['narr', '', '조명이 켜지고, 함성이 터졌습니다.'],
-      ['minji', 'happy', '하나, 둘, 셋! 안녕하세요, {group}입니다!'],
+      ['serin', 'happy', '하나, 둘, 셋! 안녕하세요, {group}입니다!'],
       ['haneul', 'happy', '와아아! {group}!!!'],
       ['narr', '', '그리고 1년 뒤.']
     ]},
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'happy', '대표님, 믿기세요? 직원이 5명에서 30명이 됐어요.'],
-      ['hyunwoo', 'happy', '다른 나라 팬들도 우리 앨범을 산대요! 해외 공연 요청도 왔어요!'],
+      ['taeo', 'happy', '다른 나라 팬들도 우리 앨범을 산대요! 해외 공연 요청도 왔어요!'],
       ['oh', 'smile', '회사가 커지면서 나라 경제에도 작은 보탬이 됐어요. 한 나라의 생산이 늘어나는 걸 경제성장이라고 해요.']
     ]},
     { type: 'mission', id: '7-1', kind: 'order', title: '성장의 고리', who: 'oh', mood: 'smile',
@@ -556,16 +555,16 @@ const CHAPTERS = [
       ok: [['oh', 'happy', '그리고 사람들이 더 많이 사면, 다시 더 많이 만들게 돼요. 이 고리가 돌면서 경제가 성장해요.']]
     },
     { type: 'scene', bg: 'office', lines: [
-      ['hyunwoo', 'happy', '대표님! 티켓값만 두 배로 올렸더니 매출이 두 배가 됐어요! 우리 성장한 거 맞죠?']
+      ['taeo', 'happy', '대표님! 티켓값만 두 배로 올렸더니 매출이 두 배가 됐어요! 우리 성장한 거 맞죠?']
     ]},
-    { type: 'mission', id: '7-2', kind: 'choice', title: '함정 문제', who: 'hyunwoo', mood: 'happy',
+    { type: 'mission', id: '7-2', kind: 'choice', title: '함정 문제', who: 'taeo', mood: 'happy',
       prompt: '티켓값만 두 배로 올려서 매출이 두 배가 됐다면, 성장한 걸까요?',
       gauge: 'fans', pocas: [],
       options: [
         { text: '맞아요. 돈이 늘었으니까 성장한 거예요.', why: [['oh', 'normal', '만든 공연과 앨범은 그대로예요. 값만 오른 거죠.']] },
         { text: '아니에요. 만든 공연과 앨범의 양이 늘어야 성장이에요.', correct: true }
       ],
-      ok: [['hyunwoo', 'shy', '아, 그렇구나! 값만 올리면 팬들만 힘들어지겠네요. 취소할게요!']]
+      ok: [['taeo', 'shy', '아, 그렇구나! 값만 올리면 팬들만 힘들어지겠네요. 취소할게요!']]
     },
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'smile', '대표님, 이거 보실래요? 삼촌이 모아 두신 옛날 사진첩이에요.'],
@@ -600,7 +599,7 @@ const CHAPTERS = [
       ok: [['oh', 'happy', '1960년대 가발 공장에서 시작한 나라가, 이제 노래와 공연을 세계에 파는 나라가 됐어요.']]
     },
     { type: 'scene', bg: 'office', lines: [
-      ['hyunwoo', 'normal', '대표님, 그런데 다른 나라 팬이 우리 앨범을 사면 나라와 나라 사이엔 무슨 일이 생기는 거예요?'],
+      ['taeo', 'normal', '대표님, 그런데 다른 나라 팬이 우리 앨범을 사면 나라와 나라 사이엔 무슨 일이 생기는 거예요?'],
       ['oh', 'smile', '그건… 다음 단원에서 알아봐요!']
     ]},
     { type: 'ending' }
@@ -612,17 +611,17 @@ const ENDINGS = {
   hidden: { title: '숨은 엔딩 · 모두가 웃는 무대', bg: 'stage', lines: [
     ['narr', '', '{group}의 첫 단독 콘서트 날.'],
     ['narr', '', '무대 위에는 멤버 네 명뿐 아니라 지수 씨와 오실장님이, 맨 앞줄에는 하늘이가 함께 웃고 있었습니다.'],
-    ['minji', 'happy', '쓰레기 없는 앨범도, 쉬는 날도, 공정한 티켓값도 다 지켰어요. 이게 우리 무대예요.'],
+    ['serin', 'happy', '쓰레기 없는 앨범도, 쉬는 날도, 공정한 티켓값도 다 지켰어요. 이게 우리 무대예요.'],
     ['oh', 'happy', '대표님, 삼촌이 보셨으면 정말 기뻐하셨을 거예요.']
   ]},
   big: { title: '대박 데뷔', bg: 'stage', lines: [
     ['narr', '', '공연장이 꽉 찼습니다. 응원봉 불빛이 바다처럼 출렁였어요.'],
-    ['hyunwoo', 'happy', '대표님! 해외 공연 초대장이 세 장이나 왔어요!'],
-    ['minji', 'happy', '대표님이 아니었으면 여기까지 못 왔을 거예요.']
+    ['taeo', 'happy', '대표님! 해외 공연 초대장이 세 장이나 왔어요!'],
+    ['serin', 'happy', '대표님이 아니었으면 여기까지 못 왔을 거예요.']
   ]},
   ok: { title: '무사 데뷔', bg: 'stage', lines: [
     ['narr', '', '작지만 따뜻한 공연장. 객석 곳곳에서 응원봉이 반짝였습니다.'],
-    ['minhyuk', 'happy', '대표님, 우리 진짜 데뷔했어요. 이제 시작이에요.'],
+    ['ian', 'happy', '대표님, 우리 진짜 데뷔했어요. 이제 시작이에요.'],
     ['oh', 'smile', '다시 해 보면 더 큰 무대가 기다리고 있을지도 몰라요.']
   ]},
   low: { title: '아슬아슬 데뷔', bg: 'stage', lines: [

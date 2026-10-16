@@ -72,7 +72,7 @@ function res(id) { if (!S.res[id]) S.res[id] = { wrongs: 0, done: false }; retur
 /* ---------- 그림 ---------- */
 function avatarHTML(id, mood, cls = '') {
   const c = CAST[id] || {};
-  if (c.member) return `<div class="avatar-c ${cls}" style="--ac:${c.color}22"><img src="${IMG['face_' + id]}" alt=""></div>`;
+  if (faceImg(id)) return `<div class="avatar-c ${cls}" style="--ac:${c.color || '#ffffff'}22"><img src="${faceImg(id)}" alt=""${IMG['face_' + id] ? '' : ' class="top"'}></div>`;
   if (c.skin) return `<div class="avatar-c ${cls}" style="--ac:${c.color}22">${portraitSVG(id, mood)}</div>`;
   if (id === 'phone') return `<div class="avatar-c ${cls}" style="--ac:#E3ECFF"><span class="emo">📞</span></div>`;
   if (id === 'uncle' || id === 'letter') return `<div class="avatar-c ${cls}" style="--ac:#FFF6CC"><span class="emo">✉️</span></div>`;
@@ -151,8 +151,8 @@ function renderTitle() {
   const cur = S.cur && CHAPTERS[S.cur.ch - 1];
   $app.innerHTML = `<div class="title-screen">
     <div class="title-stage">
-      <div class="logo"><div class="kicker">민혁 · 이영 · 현우 · 민지의 데뷔 이야기</div><h1>데뷔 프로젝트</h1><div class="sub">망해 가는 기획사를 살려라!</div></div>
-      <img class="title-lineup" src="${IMG.lineup}" alt="민혁, 이영, 현우, 민지">
+      <div class="logo"><div class="kicker">세린 · 유하 · 태오 · 이안의 데뷔 이야기</div><h1>데뷔 프로젝트</h1><div class="sub">망해 가는 기획사를 살려라!</div></div>
+      <img class="title-lineup" src="${IMG.lineup}" alt="이안, 유하, 태오, 세린">
     </div>
     <nav class="title-menu">
       ${cur ? `<button class="btn primary" data-go="continue">이어 하기 · ${cur.no}장</button>` : ''}
@@ -259,7 +259,7 @@ function renderScene(ch, node, onEnd) {
     if (who === 'narr') nt.style.display = 'none';
     else { nt.style.display = ''; nt.textContent = c.name || ''; nt.style.setProperty('--c', c.color || 'var(--ink)'); }
     const av = document.getElementById('av');
-    const staged = c.member || c.skin;
+    const staged = hasArt(who) || c.skin;
     const onStage = staged && node.type !== 'cut';
     av.innerHTML = (!onStage && who !== 'narr') ? avatarHTML(who, mood) : '';
     if (node.type !== 'cut') {
@@ -312,7 +312,7 @@ function cutHTML(html, n) { // 태그 없는 글자 n개까지 자르기 (& 기�
 }
 function stageCard(id, mood, cls) {
   const c = CAST[id];
-  if (c.member) return `<figure class="mcard ${cls}" style="--mc:${c.color}26"><span class="tag">${esc(c.name)}</span><img src="${memberImg(id, mood)}" alt="${esc(c.name)}"></figure>`;
+  if (hasArt(id)) return `<figure class="mcard ${cls}" style="--mc:${c.color}26"><span class="tag">${esc(c.name)}</span><img src="${charImg(id, mood)}" alt="${esc(c.name)}"></figure>`;
   return `<figure class="mcard npc ${cls}" style="--mc:${c.color}22"><span class="tag">${esc(c.name)}</span>${portraitSVG(id, mood)}</figure>`;
 }
 
@@ -384,7 +384,7 @@ function finishMission(ch, node) {
 function pocaHTML(id, flip = false) {
   const p = POCAS[id]; const n = POCA_IDS.indexOf(id) + 1;
   return `<div class="poca ${flip ? 'flip' : ''}" data-p="${id}" role="button" tabindex="0" aria-label="${esc(p.word)} 포카, 눌러서 뒤집기">
-    <div class="face front"><span class="no">No.${n}</span><div class="ph"><img src="${IMG['face_' + p.who]}" alt=""></div><div class="word">${esc(p.word)}</div></div>
+    <div class="face front"><span class="no">No.${n}</span><div class="ph"><img src="${faceImg(p.who)}" alt=""></div><div class="word">${esc(p.word)}</div></div>
     <div class="face back"><b>${esc(p.word)}</b><p>${esc(p.def)}</p></div></div>`;
 }
 function bindFlip(root) { root.querySelectorAll('.poca').forEach(el => el.onclick = () => el.classList.toggle('flip')); }
@@ -604,7 +604,7 @@ KIND.schedule = (st, mb, mf, hl, api) => {
     mb.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { d = +b.dataset.d; draw(); });
     mf.querySelector('#night').onclick = () => api.wrong([
       ['narr', '', '밤샘 연습을 밀어붙인 다음 날 아침…'],
-      ['iyoung', 'tired', '콜록콜록… 대표님, 저 또 어지러워요…'],
+      ['yuha', 'tired', '콜록콜록… 대표님, 저 또 어지러워요…'],
       ['jisu', 'sad', '저도 이틀째 집에 못 갔어요…'],
       ['oh', 'worried', '대표님, 쉬지 않고 일하면 몸도 마음도 무너져요. 근로 시간과 쉬는 날은 꼭 지켜야 해요.']
     ], { pen: { trust: -15 }, flag: 'nightShift' });
@@ -642,11 +642,11 @@ KIND.order = (st, mb, mf, hl, api) => {
 
 /* ===================== 장 끝 ===================== */
 const STORY_RULES = {
-  hyunwoo: () => chapterWrongs(2) <= 1,
+  taeo: () => chapterWrongs(2) <= 1,
   haneul: () => chapterWrongs(3) <= 1,
-  minhyuk: () => S.res['4-1'] && S.res['4-1'].wrongs === 0,
-  iyoung: () => S.res['5-2'] && S.res['5-2'].wrongs === 0,
-  minji: () => S.res['6-1'] && S.res['6-1'].wrongs === 0 && S.res['6-2'] && S.res['6-2'].wrongs === 0,
+  ian: () => S.res['4-1'] && S.res['4-1'].wrongs === 0,
+  yuha: () => S.res['5-2'] && S.res['5-2'].wrongs === 0,
+  serin: () => S.res['6-1'] && S.res['6-1'].wrongs === 0 && S.res['6-2'] && S.res['6-2'].wrongs === 0,
   oh: () => true
 };
 function renderChapterEnd(ch, node) {

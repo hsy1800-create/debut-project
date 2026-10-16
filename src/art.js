@@ -1,10 +1,10 @@
 /* ===== 캐릭터 그림 (직접 그린 단순한 그림체) ===== */
 const CAST = {
   oh:       { name: '오실장', color: '#7B61FF', skin: '#F6D2B8', hair: '#3B3340', style: 'bun', glasses: true, outfit: '#5B6B8C', collar: 'blazer' },
-  minji:    { name: '민지', color: '#E23E77', member: true },
-  iyoung:   { name: '이영', color: '#D98A00', member: true },
-  hyunwoo:  { name: '현우', color: '#1E9B63', member: true },
-  minhyuk:  { name: '민혁', color: '#2F6FEB', member: true },
+  serin:    { name: '세린', color: '#7C4DFF', member: true },
+  yuha:     { name: '유하', color: '#F0556E', member: true },
+  taeo:     { name: '태오', color: '#0FA389', member: true },
+  ian:      { name: '이안', color: '#2C4A8C', member: true },
   haneul:   { name: '하늘', color: '#1C9AD6', skin: '#F8D9C6', hair: '#4A3428', style: 'ponytail', outfit: '#9AD9F5', collar: 'tee', kid: true },
   kang:     { name: '강태산 대표', color: '#3A3A48', skin: '#E9C3A6', hair: '#141418', style: 'slick', outfit: '#2B2B35', collar: 'suit', tie: '#C81E4A' },
   jisu:     { name: '지수', color: '#8A5CF6', skin: '#F4D0B6', hair: '#3A2A22', style: 'short', headset: true, outfit: '#B9A3FF', collar: 'tee' },
@@ -136,18 +136,30 @@ function portraitSVG(id, mood = 'normal') {
   return s;
 }
 
-/* 멤버 표정별 그림 (PDF에서 잘라 온 그림) */
-const MEMBER_IMG = {
-  minji:   { normal: 'minji', happy: 'minji_wink', smile: 'minji_wink', angry: 'minji_angry', worried: 'minji_ugh', surprised: 'minji_ugh', sad: 'minji_ugh' },
-  minhyuk: { normal: 'minhyuk', serious: 'minhyuk_serious', happy: 'minhyuk_happy', smile: 'minhyuk_happy', worried: 'minhyuk_worried', surprised: 'minhyuk_worried' },
-  iyoung:  { normal: 'iyoung', smile: 'iyoung', happy: 'iyoung', angry: 'iyoung_angry', think: 'iyoung_think', worried: 'iyoung_think', tired: 'iyoung_cough', sad: 'iyoung_cough' },
-  hyunwoo: { normal: 'hyunwoo', happy: 'hyunwoo', smile: 'hyunwoo_door', shy: 'hyunwoo_shy', surprised: 'hyunwoo_shy', worried: 'hyunwoo_shy', sad: 'hyunwoo_shy' }
+/* 인물 그림 찾기
+   assets 폴더의 그림 이름은 "인물_표정" (예: serin_happy, oh_worried).
+   그 표정 그림이 없으면 비슷한 표정 → normal 순서로 찾는다.
+   인물 그림이 하나도 없으면 직접 그린 단순한 그림(portraitSVG)을 쓴다. */
+const MOOD_CHAIN = {
+  normal: ['normal'],
+  happy: ['happy', 'normal', 'smile'],
+  smile: ['smile', 'happy', 'normal'],
+  angry: ['angry', 'serious', 'normal'],
+  worried: ['worried', 'think', 'shy', 'sad', 'normal'],
+  surprised: ['surprised', 'worried', 'shy', 'normal'],
+  sad: ['sad', 'tired', 'worried', 'normal'],
+  tired: ['tired', 'sad', 'worried', 'normal'],
+  think: ['think', 'worried', 'normal'],
+  serious: ['serious', 'normal'],
+  shy: ['shy', 'worried', 'normal'],
+  smirk: ['smirk', 'normal']
 };
-function memberImg(id, mood) {
-  const m = MEMBER_IMG[id];
-  if (!m) return null;
-  return IMG[m[mood] || m.normal];
+function charImg(id, mood) {
+  for (const m of (MOOD_CHAIN[mood] || [mood, 'normal'])) if (IMG[id + '_' + m]) return IMG[id + '_' + m];
+  return IMG[id + '_normal'] || null;
 }
+function hasArt(id) { return !!IMG[id + '_normal']; }
+function faceImg(id) { return IMG['face_' + id] || IMG[id + '_normal'] || null; }
 
 /* 작은 팬 아이콘 (2장 티켓값) */
 function fanSVG(lit) {

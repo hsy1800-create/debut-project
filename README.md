@@ -1,7 +1,7 @@
 # 데뷔 프로젝트: 기획사를 살려라
 
 6학년 사회 「우리나라 경제의 특징」 단원(1~7차시)을 기획사 경영 이야기로 풀어 보는 게임입니다.
-민혁·이영·현우·민지가 데뷔를 준비하는 작은 기획사의 대표가 되어, 장마다 경제 개념으로 위기를 넘깁니다.
+세린·유하·태오·이안이 데뷔를 준비하는 작은 기획사의 대표가 되어, 장마다 경제 개념으로 위기를 넘깁니다.
 
 - 게임 주소: https://hsy1800-create.github.io/debut-project/
 - 1장 시장·가계·기업 / 2장 시장 경제와 경쟁 / 3장 가계의 합리적 선택 / 4장 기업의 역할 / 5장 근로자의 권리 / 6장 기업의 자유와 사회적 책임 / 7장 경제성장
@@ -10,6 +10,6 @@
 
 ## 고치는 방법
 
-- 대사와 미션: `src/story.js`
-- 화면 모양: `src/style.css`, 게임 진행: `src/engine.js`
-- 고친 뒤 `python3 tools/build.py`를 실행하면 `index.html`이 새로 만들어집니다.
+- 새 그림 넣기: `art/` 폴더에 그림을 넣고 `python tools/import_art.py` → `python tools/build.py` (자세한 내용은 `AGENTS.md`, 그림 프롬프트는 `art/PROMPTS.md`)
+- 대사와 미션: `src/story.js` / 화면 모양: `src/style.css` / 게임 진행: `src/engine.js`
+- 고친 뒤 `python tools/build.py`를 실행하면 `index.html`이 새로 만들어집니다.

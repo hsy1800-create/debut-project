@@ -44,7 +44,7 @@ async def solve(pg, info, wrong_first):
     elif k == 'sort':
         cards = st['cards']; bins = st['bins']
         async def place(cid, bid):
-            await click(pg, f'.pool .chip[data-c="{cid}"]'); await click(pg, f'.bin[data-b="{bid}"]')
+            await click(pg, f'.pool .chip[data-c="{cid}"]'); await click(pg, f'.bin[data-b="{bid}"] .bin-label')
         if wrong_first:
             ans=[c for c in cards if c['ans']]
             if all(x.get('cap') for x in bins):

@@ -227,6 +227,10 @@ img { display: block; max-width: 100%; }
 .bin { border: 3px solid var(--ink); border-radius: 16px; background: var(--blue-soft); padding: 10px; min-height: 130px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
 .bin.target { outline: 4px solid var(--yellow); outline-offset: 2px; background: #FFF8D6; }
 .bin h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 1.25rem; text-align: center; }
+.bin-label { display: block; width: 100%; padding: 4px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.bin-label:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; border-radius: 6px; }
+.bin-contents { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; min-height: 76px; padding: 10px; border: 2px dashed var(--ink2); border-radius: 12px; background: rgba(255,255,255,.65); }
+.bin-contents .slot { border: 0; text-align: center; }
 .bin .chip { width: 100%; }
 .bins.flow .bin, .bins.timeline .bin { min-height: 104px; }
 .bins.flow .bin h3 { font-size: 1.05rem; }
@@ -1720,7 +1724,7 @@ KIND.sort = (st, mb, mf, hl, api) => {
     mb.innerHTML = `<div class="pool" id="pool">${pool.map(c => chip(c)).join('')}</div>
       <div class="bins ${st.layout || 'bins3'}">${st.bins.map(b => {
         const inside = st.cards.filter(c => place[c.id] === b.id);
-        return `<button class="bin ${selected ? 'target' : ''}" data-b="${b.id}"><h3>${esc(b.label)}</h3>${inside.map(c => chip(c)).join('')}${b.cap && !inside.length ? '<span class="slot">여기에 넣기</span>' : ''}</button>`;
+        return `<section class="bin ${selected ? 'target' : ''}" data-b="${b.id}" aria-labelledby="bin-${b.id}"><h3 id="bin-${b.id}"><button type="button" class="bin-label">${esc(b.label)}</button></h3><div class="bin-contents">${inside.length ? inside.map(c => chip(c)).join('') : '<span class="slot">여기에 카드를 담아 주세요</span>'}</div></section>`;
       }).join('')}</div>`;
     const full = capped ? st.bins.every(b => st.cards.some(c => place[c.id] === b.id)) : pool.length === 0;
     mf.innerHTML = `<button class="btn primary" id="ck" ${full ? '' : 'disabled'}>다 담았어요</button>`;

@@ -1278,13 +1278,11 @@ const $app = document.getElementById('app');
 const $modal = document.getElementById('modal');
 const $toast = document.getElementById('toast');
 
-/* ---------- 저장 ---------- */
+/* ---------- 현재 페이지에서만 유지하는 진행 상태 ---------- */
 function freshState() { return { ceo: '', group: '', cur: null, res: {}, flags: {}, stories: [], done: [], ending: null }; }
-function loadState() {
-  try { const t = localStorage.getItem(SAVE_KEY); if (!t) return null; const s = JSON.parse(t); return Object.assign(freshState(), s); } catch (e) { return null; }
-}
-function saveState() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) { /* 저장이 막혀도 게임은 계속 */ } }
-let S = loadState() || freshState();
+// 이전 버전의 이 게임 기록만 정리합니다. 다른 사이트/게임 저장소는 건드리지 않습니다.
+try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* 저장소 접근 없이도 시작 */ }
+let S = freshState();
 
 /* ---------- 미션 찾아보기 ---------- */
 const MISSIONS = {};
@@ -1435,6 +1433,7 @@ function renderTitle() {
       <button class="btn" data-go="select">장 고르기</button>
       <button class="btn" data-go="dex">포카 도감 ${owned}/${POCA_IDS.length}</button>
       ${S.ending ? `<button class="btn" data-go="result">내 데뷔 기록</button>` : ''}
+      <div class="meta">진행 기록은 저장되지 않아요. 새로고침하거나 다시 접속하면 처음부터 시작해요.</div>
       <div class="meta">${S.ceo ? `${esc(S.ceo)} 대표 · 그룹 ${esc(S.group)}` : '6학년 사회 · 우리나라 경제의 특징'}</div>
     </nav></div>`;
   $app.querySelectorAll('[data-go]').forEach(b => b.onclick = async () => {
@@ -1445,7 +1444,7 @@ function renderTitle() {
         const ok = await confirmBox('처음부터 다시 하면 지금까지 모은 포카와 기록이 모두 지워져요.', '처음부터 하기');
         if (!ok) return;
       }
-      S = freshState(); saveState(); lastG = null; return playAt(1, 0);
+      S = freshState(); lastG = null; return playAt(1, 0);
     }
     if (g === 'select') return renderSelect();
     if (g === 'dex') return renderDex('poca');
@@ -1494,7 +1493,7 @@ let CUR = { ch: 1, node: 0 };
 function playAt(chNo, nodeIdx) {
   closeModal();
   CUR = { ch: chNo, node: nodeIdx };
-  S.cur = { ch: chNo, node: nodeIdx }; saveState();
+  S.cur = { ch: chNo, node: nodeIdx };
   const ch = CHAPTERS[chNo - 1]; const node = ch.nodes[nodeIdx];
   if (!node) return renderTitle();
   if (node.type === 'scene' || node.type === 'cut') return renderScene(ch, node);
@@ -1609,7 +1608,7 @@ function renderNames(done) {
   document.getElementById('go').onclick = () => {
     const c = document.getElementById('ceo').value.trim(), g = document.getElementById('grp').value.trim();
     if (!c || !g) { document.getElementById('nh').textContent = !c ? '대표 이름을 적어 주세요.' : '그룹 이름을 적어 주세요.'; return; }
-    S.ceo = c; S.group = g; saveState(); done();
+    S.ceo = c; S.group = g; done();
   };
 }
 
@@ -1618,7 +1617,7 @@ const KIND = {};
 function renderMission(ch, node) {
   const steps = node.kind === 'steps' ? node.steps : [node];
   let si = 0;
-  const r = res(node.id); saveState();
+  const r = res(node.id);
   const draw = () => {
     const st = steps[si];
     const who = st.who || node.who, mood = st.mood || node.mood;
@@ -1635,7 +1634,7 @@ function renderMission(ch, node) {
       wrong(lines, opts = {}) {
         r.wrongs++; if (opts.pen) { r.pen = r.pen || {}; for (const k in opts.pen) r.pen[k] = (r.pen[k] || 0) + opts.pen[k]; }
         if (opts.flag) S.flags[opts.flag] = true;
-        saveState(); refreshHud();
+        refreshHud();
         talkModal({ title: '다시 생각해 볼까요?', cls: 'no', lines, lastBtn: '다시 해 보기', onDone: opts.after });
       },
       pass() {
@@ -1649,7 +1648,7 @@ function renderMission(ch, node) {
   draw();
 }
 function finishMission(ch, node) {
-  const r = res(node.id); r.done = true; saveState();
+  const r = res(node.id); r.done = true;
   const before = lastG; refreshHud();
   const g = gaugeVals(); const gi = GAUGES.find(x => x.key === node.gauge);
   const d = before ? g[node.gauge] - before[node.gauge] : 0;
@@ -1929,7 +1928,7 @@ function renderChapterEnd(ch, node) {
   let unlocked = null;
   if (node.story && STORY_RULES[node.story]()) { if (!S.stories.includes(node.story)) S.stories.push(node.story); unlocked = node.story; }
   const nextCh = CHAPTERS[ch.no];
-  S.cur = nextCh ? { ch: nextCh.no, node: 0 } : null; saveState();
+  S.cur = nextCh ? { ch: nextCh.no, node: 0 } : null;
   const got = ch.nodes.filter(n => n.type === 'mission').flatMap(n => (S.res[n.id] && S.res[n.id].done) ? n.pocas : []);
   $app.innerHTML = hudHTML(ch) + `<main class="stage bg-stage"><div class="mission-wrap"><section class="sheet endcard">
     <div class="mno" style="font-family:var(--display);color:var(--pink);font-size:1.1rem">${ch.no}차시 · ${esc(ch.topic)}</div>
@@ -1938,11 +1937,11 @@ function renderChapterEnd(ch, node) {
     <div class="mini-pocas">${got.map(p => pocaHTML(p)).join('')}</div>
     ${node.story ? (unlocked ? `<div class="unlock">🔓 숨은 이야기가 열렸어요: ${esc(STORIES[unlocked].title)} <button class="btn small blue" id="rd">지금 보기</button></div>`
       : `<div class="unlock" style="background:#F3F5FA;font-weight:500">🔒 숨은 이야기 「${esc(STORIES[node.story].title)}」는 아직 잠겨 있어요. ${esc(STORIES[node.story].cond)}</div>`) : ''}
-    <div class="m-foot">${nextCh ? `<button class="btn" id="rest">저장하고 쉬기</button><button class="btn primary" id="nx">${nextCh.no}장으로 가기</button>` : ''}</div>
+    <div class="m-foot">${nextCh ? `<button class="btn" id="rest">처음 화면으로</button><button class="btn primary" id="nx">${nextCh.no}장으로 가기</button>` : ''}</div>
   </section></div></main>`;
   bindHud(); refreshHud(); bindFlip($app);
   const rd = document.getElementById('rd'); if (rd) rd.onclick = () => playStory(unlocked);
-  const rest = document.getElementById('rest'); if (rest) rest.onclick = () => { toast('저장했어요. 다음 시간에 이어 해요!'); renderTitle(); };
+  const rest = document.getElementById('rest'); if (rest) rest.onclick = () => { toast('이 페이지를 닫거나 새로고침하면 처음부터 시작해요.'); renderTitle(); };
   const nx = document.getElementById('nx'); if (nx) nx.onclick = () => playAt(nextCh.no, 0);
 }
 function playStory(id) {
@@ -1964,7 +1963,7 @@ function renderEnding() {
   S.ending = { key, date: new Date().toISOString() };
   if (!S.done.includes(7)) S.done.push(7);
   if (!S.stories.includes('oh')) S.stories.push('oh');
-  S.cur = null; saveState();
+  S.cur = null;
   const ch = CHAPTERS[6];
   renderScene(ch, { type: 'scene', bg: e.bg, label: e.title, lines: e.lines }, () => renderResult(true));
 }
@@ -2020,7 +2019,7 @@ function openMenu() {
     <button class="btn" data-m="resume">계속하기</button>
     <button class="btn" data-m="select">장 고르기</button>
     <button class="btn" data-m="dex">포카 도감 · 숨은 이야기</button>
-    <button class="btn" data-m="title">처음 화면 (저장돼요)</button></div>`);
+    <button class="btn" data-m="title">처음 화면</button></div>`);
   m.querySelectorAll('[data-m]').forEach(b => b.onclick = () => {
     const a = b.dataset.m; closeModal();
     if (a === 'select') renderSelect(); if (a === 'dex') renderDex('poca'); if (a === 'title') renderTitle();

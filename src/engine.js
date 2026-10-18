@@ -450,7 +450,7 @@ KIND.sort = (st, mb, mf, hl, api) => {
     mb.innerHTML = `<div class="pool" id="pool">${pool.map(c => chip(c)).join('')}</div>
       <div class="bins ${st.layout || 'bins3'}">${st.bins.map(b => {
         const inside = st.cards.filter(c => place[c.id] === b.id);
-        return `<button class="bin ${selected ? 'target' : ''}" data-b="${b.id}"><h3>${esc(b.label)}</h3>${inside.map(c => chip(c)).join('')}${b.cap && !inside.length ? '<span class="slot">여기에 넣기</span>' : ''}</button>`;
+        return `<section class="bin ${selected ? 'target' : ''}" data-b="${b.id}" aria-labelledby="bin-${b.id}"><h3 id="bin-${b.id}"><button type="button" class="bin-label">${esc(b.label)}</button></h3><div class="bin-contents">${inside.length ? inside.map(c => chip(c)).join('') : '<span class="slot">여기에 카드를 담아 주세요</span>'}</div></section>`;
       }).join('')}</div>`;
     const full = capped ? st.bins.every(b => st.cards.some(c => place[c.id] === b.id)) : pool.length === 0;
     mf.innerHTML = `<button class="btn primary" id="ck" ${full ? '' : 'disabled'}>다 담았어요</button>`;

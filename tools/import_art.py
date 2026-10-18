@@ -100,7 +100,9 @@ def main():
     for f in files:
         stem = os.path.splitext(os.path.basename(f))[0].lower().replace('-', '_').replace(' ', '_')
         im = Image.open(f)
-        if stem == 'lineup':
+        if stem == 'title_stage':
+            save(fit(im.convert('RGB'), maxw=1920), stem)
+        elif stem == 'lineup':
             save(fit(trim(white_to_alpha(im)), maxw=1400), 'lineup')
         elif stem == 'chibi':
             save(fit(trim(white_to_alpha(im)), maxw=420, maxh=420), 'chibi_quiz')

@@ -1,7 +1,17 @@
 # 캐릭터 그림 프롬프트
 
+## 메인 화면 무대 배경 · title_stage.png
+
+인물과 글자 없는 화려한 데뷔 공연 무대. 가로 3:2, 정면 구도, 보라·핑크·시안·금색 스포트라이트, 곡선 LED 아치, 별빛 장식, 반사되는 무대 바닥. 중앙은 캐릭터가 잘 보이도록 정돈하고 상단 중앙은 제목의 가독성을 위해 어두운 남색으로 유지합니다. 기존 캐릭터와 어울리는 깔끔한 애니메이션 게임 배경 그림체. 투명 배경이 아닌 완성된 배경으로 제작합니다.
+
 1단계 단체 설정화(`lineup.png`)를 먼저 만들고, 그 그림을 **첨부한 채로** 나머지를 하나씩 만듭니다.
 만든 그림은 아래 파일 이름 그대로 이 `art` 폴더에 넣습니다. 그림 안에는 글자를 넣지 않습니다.
+
+## 의상 기준 (선생님 요청 반영)
+
+여성 멤버는 가슴·어깨·배를 충분히 가리는 단정한 의상을 유지합니다. 세린은 검은 재킷 아래 트임 없는 높은 목선의 불투명한 보라색 긴 상의를 입으며 밑단은 허리 아래까지 내려옵니다. 유하는 닫힌 높은 둥근 목선과 소매가 있는 흰색·코랄핑크 원피스를 입습니다. 모든 표정과 장면에도 동일하게 적용합니다.
+
+모든 생성 프롬프트에 추가: `Modest classroom-friendly clothing: opaque high-neck tops fully covering the chest, shoulders and stomach; no chest cutouts, cleavage, crop tops, sheer fabric or exposed midriff. Serin wears a relaxed full-length violet shirt under her jacket; Yuha wears a closed high-round-neck sleeved dress.`
 
 ## 공통 그림체 문장
 
@@ -18,9 +28,9 @@ Create a character design sheet: a full-body lineup of a 4-member co-ed rookie K
 
 From left to right:
 1. IAN (male, about 22, composer and producer, the group's quiet "visual" member): straight dark hair with a deep navy tint, long side-swept bangs lightly covering one eye, thin round silver wire-rim glasses, calm half-lidded gaze and a faint cool smile. Black turtleneck under a long charcoal coat, slim black trousers, a thin silver necklace, white wireless headphones resting around his neck. Signature color: navy and silver.
-2. YUHA (female, about 20, main vocalist, kind and hardworking): long soft wavy rose-brown hair with see-through bangs and two small pearl hair pins, round gentle eyes, warm bright smile. Knee-length layered stage dress in white and coral pink with a ribbon at the waist, white sneakers. Signature color: coral pink.
+2. YUHA (female, about 20, main vocalist, kind and hardworking): long soft wavy rose-brown hair with see-through bangs and two small pearl hair pins, round gentle eyes, warm bright smile. Knee-length layered stage dress in white and coral pink with a closed high round neckline, sleeves, opaque relaxed bodice and a ribbon at the waist, white sneakers. Signature color: coral pink.
 3. TAEO (male, about 21, rapper and the fan-service king, sunny puppy-like energy): fluffy layered ash-silver hair with mint highlights, a big open grin, one small silver hoop earring. Oversized cream-and-mint varsity jacket over a white tee, wide light-blue jeans, chunky sneakers. Signature color: mint.
-4. SERIN (female, about 21, leader and main dancer, charismatic "girl crush" leader): long sleek black hair with a violet underlayer, tied in a high half-up ponytail, sharp cat-like eyes, a small confident smirk. Short black jacket with silver details over a violet top, black cargo pants, black boots. Signature color: violet.
+4. SERIN (female, about 21, leader and main dancer, charismatic "girl crush" leader): long sleek black hair with a violet underlayer, tied in a high half-up ponytail, sharp cat-like eyes, a small confident smirk. Short black jacket with silver details over a relaxed opaque high-neck full-length violet shirt covering chest and stomach, no cutouts, black cargo pants, black boots. Signature color: violet.
 
 Art style: modern Korean idol-game character illustration, clean crisp line art, soft cel shading with subtle glossy highlights, bright pastel colors with a touch of neon, large expressive eyes, trendy 2026 K-pop stage fashion, polished mobile-game splash-art quality. Original characters only: they must not resemble any real celebrity or existing K-pop idol. Wholesome and age-appropriate for an elementary school classroom game, modest outfits. No text, no logos, no watermarks.
 ```

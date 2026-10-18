@@ -151,6 +151,7 @@ function renderTitle() {
   const cur = S.cur && CHAPTERS[S.cur.ch - 1];
   $app.innerHTML = `<div class="title-screen">
     <div class="title-stage">
+      <img class="title-backdrop" src="${IMG.title_stage}" alt="" aria-hidden="true">
       <div class="logo"><div class="kicker">세린 · 유하 · 태오 · 이안의 데뷔 이야기</div><h1>데뷔 프로젝트</h1><div class="sub">망해 가는 기획사를 살려라!</div></div>
       <img class="title-lineup" src="${IMG.lineup}" alt="이안, 유하, 태오, 세린">
     </div>

@@ -74,10 +74,15 @@
       $(ta).val(L.title).trigger('input').trigger('change').trigger('keyup');
       prog('title');
       // 2 스마트에디터
-      document.querySelector('[data-selector=toolbarBtnGroup] [data-type=SmartEditor]').click();
-      const ed = await waitFor(() => window.SmartEditor && SmartEditor._editors && Object.values(SmartEditor._editors).pop(), 15000);
-      await sleep(1500);
+      await waitFor(() => window.SmartEditor && SmartEditor._editors, 15000);
+      if (!document.querySelector('._material[data-type=SmartEditor]')) {
+        document.querySelector('[data-selector=toolbarBtnGroup] [data-type=SmartEditor]').click();
+        await waitFor(() => document.querySelector('._material[data-type=SmartEditor]'), 15000);
+      }
+      await sleep(2500);
+      const ed = Object.values(SmartEditor._editors).pop();
       ed.setDocumentData(buildDoc(L.title, L.blocks));
+      await sleep(5000);
       prog('se');
       // 3 영상
       for (const v of L.videos) prog('video ' + (await addUrl(v)));
@@ -88,7 +93,7 @@
       // 6 교과
       const sel = [...document.querySelectorAll('select')].find((e) => [...e.options].some((o) => o.value === '사회'));
       $(sel).val('사회').trigger('change').trigger('chosen:updated');
-      await sleep(800);
+      await sleep(2500);
       // 7 저장(비공개)
       if (!window.__origAjax) window.__origAjax = $.ajax;
       $.ajax = function (o) {

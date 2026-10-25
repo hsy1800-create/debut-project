@@ -118,6 +118,19 @@ img { display: block; max-width: 100%; }
   radial-gradient(circle at 72% 92%, #FFD23F 0 .6%, transparent .8%), radial-gradient(circle at 88% 95%, #FF8FB5 0 .6%, transparent .8%),
   linear-gradient(transparent 70%, #3A2560 70%, #22163D 100%),
   linear-gradient(#1A1534, #3B2B6B); }
+.bg-park { background:
+  radial-gradient(circle 64px at 9% 50%, #4FA866 0 98%, transparent), radial-gradient(circle 50px at 24% 54%, #63BF74 0 98%, transparent),
+  radial-gradient(circle 58px at 76% 51%, #4FA866 0 98%, transparent), radial-gradient(circle 70px at 92% 48%, #63BF74 0 98%, transparent),
+  linear-gradient(90deg, transparent calc(9% - 7px), #7A5A3A calc(9% - 7px) calc(9% + 7px), transparent 0 calc(24% - 6px), #7A5A3A calc(24% - 6px) calc(24% + 6px), transparent 0 calc(76% - 7px), #7A5A3A calc(76% - 7px) calc(76% + 7px), transparent 0 calc(92% - 8px), #7A5A3A calc(92% - 8px) calc(92% + 8px), transparent 0) 0 62% / 100% 18% no-repeat,
+  radial-gradient(ellipse 60% 22% at 50% 70%, #9FD89A 0 98%, transparent),
+  linear-gradient(transparent 70%, #8ED08A 70%, #6FBF6B 100%),
+  linear-gradient(#A8DBFF, #E6F6FF); }
+.bg-expo { background:
+  repeating-linear-gradient(90deg, #FF8FB5 0 36px, #fff 36px 72px) 0 12% / 100% 34px no-repeat,
+  linear-gradient(90deg, transparent 6%, #FF8FB5 6% 30%, transparent 30% 38%, #7FA7F5 38% 62%, transparent 62% 70%, #FFD23F 70% 94%, transparent 94%) 0 59% / 100% 10% no-repeat,
+  linear-gradient(90deg, transparent 6%, #fff 6% 30%, transparent 30% 38%, #E3ECFF 38% 62%, transparent 62% 70%, #FFF6CC 70% 94%, transparent 94%) 0 22% / 100% 40% no-repeat,
+  linear-gradient(transparent 72%, #C9D3E6 72%, #B4C0D8 100%),
+  linear-gradient(#EEF1F8, #DCE3F0); }
 
 .bg-street::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: 20%; width: min(44%, 520px); height: 62%;
   background: radial-gradient(circle, #FFE9A8 0 7px, transparent 8px) 10px 64px / 46px 50px, #8E7CC3; border: 4px solid var(--ink); border-bottom: 0; border-radius: 14px 14px 0 0; }
@@ -212,6 +225,8 @@ img { display: block; max-width: 100%; }
 .bins.bins3, .bins.judge { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .bins.flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bins.timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.bins.bins2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bins.bins4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .bin { border: 3px solid var(--ink); border-radius: 16px; background: var(--blue-soft); padding: 10px; min-height: 130px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
 .bin.target { outline: 4px solid var(--yellow); outline-offset: 2px; background: #FFF8D6; }
 .bin h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 1.25rem; text-align: center; }
@@ -353,7 +368,9 @@ img { display: block; max-width: 100%; }
 .poca .front .word { font-family: var(--display); font-size: 1.55rem; text-align: center; padding: 8px 6px 10px; line-height: 1.1; word-break: keep-all; }
 .poca .front .no { position: absolute; top: 16px; right: 16px; z-index: 1; font-family: var(--display); font-size: .85rem; background: var(--white); border: 2px solid var(--ink); border-radius: 999px; padding: 0 8px; }
 .poca .back { transform: rotateY(180deg); background: var(--white); padding: 16px; display: flex; flex-direction: column; justify-content: center; gap: 10px; text-align: center; }
-.poca .back b { font-family: var(--display); font-weight: 400; font-size: 1.5rem; color: var(--pink); }
+/* 뜻이 카드보다 길면 위가 잘리지 않게 위에서부터 보여 주고, 카드 안에서 밀어 볼 수 있게 함 */
+.poca .back { justify-content: safe center; overflow-y: auto; }
+.poca .back b { font-family: var(--display); font-weight: 400; font-size: 1.5rem; color: var(--pink); word-break: keep-all; }
 .poca .back p { margin: 0; font-size: 1rem; line-height: 1.55; word-break: keep-all; }
 .flip-hint { text-align: center; color: var(--ink2); font-size: .95rem; margin-top: 6px; }
 
@@ -364,7 +381,7 @@ img { display: block; max-width: 100%; }
 .tabs { display: flex; gap: 8px; }
 .tabs button { border: 3px solid var(--ink); background: var(--white); border-radius: 999px; padding: 6px 16px; font-family: var(--display); font-size: 1.05rem; min-height: 46px; }
 .tabs button.sel { background: var(--ink); color: var(--white); }
-.dex { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; max-width: 1100px; margin: 0 auto; }
+.dex { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; max-width: 1100px; margin: 0 auto; }
 .dex .poca { width: 100%; }
 .dex .poca .front .word { font-size: 1.2rem; }
 .dex .poca .back p { font-size: .88rem; }
@@ -417,6 +434,7 @@ img { display: block; max-width: 100%; }
   .hud-ch span { display: none; }
   .items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bins.timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bins.bins4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .order-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
@@ -426,6 +444,7 @@ img { display: block; max-width: 100%; }
   .bins.bins3, .bins.judge { grid-template-columns: 1fr; }
   .bins.flow { grid-template-columns: 1fr; }
   .bins.timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bins.bins2, .bins.bins4 { grid-template-columns: 1fr; }
   .fans { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .brow { grid-template-columns: 1fr; }
   .sched-ctrl { grid-template-columns: 1fr; }

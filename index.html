@@ -130,6 +130,19 @@ img { display: block; max-width: 100%; }
   radial-gradient(circle at 72% 92%, #FFD23F 0 .6%, transparent .8%), radial-gradient(circle at 88% 95%, #FF8FB5 0 .6%, transparent .8%),
   linear-gradient(transparent 70%, #3A2560 70%, #22163D 100%),
   linear-gradient(#1A1534, #3B2B6B); }
+.bg-park { background:
+  radial-gradient(circle 64px at 9% 50%, #4FA866 0 98%, transparent), radial-gradient(circle 50px at 24% 54%, #63BF74 0 98%, transparent),
+  radial-gradient(circle 58px at 76% 51%, #4FA866 0 98%, transparent), radial-gradient(circle 70px at 92% 48%, #63BF74 0 98%, transparent),
+  linear-gradient(90deg, transparent calc(9% - 7px), #7A5A3A calc(9% - 7px) calc(9% + 7px), transparent 0 calc(24% - 6px), #7A5A3A calc(24% - 6px) calc(24% + 6px), transparent 0 calc(76% - 7px), #7A5A3A calc(76% - 7px) calc(76% + 7px), transparent 0 calc(92% - 8px), #7A5A3A calc(92% - 8px) calc(92% + 8px), transparent 0) 0 62% / 100% 18% no-repeat,
+  radial-gradient(ellipse 60% 22% at 50% 70%, #9FD89A 0 98%, transparent),
+  linear-gradient(transparent 70%, #8ED08A 70%, #6FBF6B 100%),
+  linear-gradient(#A8DBFF, #E6F6FF); }
+.bg-expo { background:
+  repeating-linear-gradient(90deg, #FF8FB5 0 36px, #fff 36px 72px) 0 12% / 100% 34px no-repeat,
+  linear-gradient(90deg, transparent 6%, #FF8FB5 6% 30%, transparent 30% 38%, #7FA7F5 38% 62%, transparent 62% 70%, #FFD23F 70% 94%, transparent 94%) 0 59% / 100% 10% no-repeat,
+  linear-gradient(90deg, transparent 6%, #fff 6% 30%, transparent 30% 38%, #E3ECFF 38% 62%, transparent 62% 70%, #FFF6CC 70% 94%, transparent 94%) 0 22% / 100% 40% no-repeat,
+  linear-gradient(transparent 72%, #C9D3E6 72%, #B4C0D8 100%),
+  linear-gradient(#EEF1F8, #DCE3F0); }
 
 .bg-street::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: 20%; width: min(44%, 520px); height: 62%;
   background: radial-gradient(circle, #FFE9A8 0 7px, transparent 8px) 10px 64px / 46px 50px, #8E7CC3; border: 4px solid var(--ink); border-bottom: 0; border-radius: 14px 14px 0 0; }
@@ -224,6 +237,8 @@ img { display: block; max-width: 100%; }
 .bins.bins3, .bins.judge { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .bins.flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bins.timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.bins.bins2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bins.bins4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .bin { border: 3px solid var(--ink); border-radius: 16px; background: var(--blue-soft); padding: 10px; min-height: 130px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
 .bin.target { outline: 4px solid var(--yellow); outline-offset: 2px; background: #FFF8D6; }
 .bin h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 1.25rem; text-align: center; }
@@ -365,7 +380,9 @@ img { display: block; max-width: 100%; }
 .poca .front .word { font-family: var(--display); font-size: 1.55rem; text-align: center; padding: 8px 6px 10px; line-height: 1.1; word-break: keep-all; }
 .poca .front .no { position: absolute; top: 16px; right: 16px; z-index: 1; font-family: var(--display); font-size: .85rem; background: var(--white); border: 2px solid var(--ink); border-radius: 999px; padding: 0 8px; }
 .poca .back { transform: rotateY(180deg); background: var(--white); padding: 16px; display: flex; flex-direction: column; justify-content: center; gap: 10px; text-align: center; }
-.poca .back b { font-family: var(--display); font-weight: 400; font-size: 1.5rem; color: var(--pink); }
+/* 뜻이 카드보다 길면 위가 잘리지 않게 위에서부터 보여 주고, 카드 안에서 밀어 볼 수 있게 함 */
+.poca .back { justify-content: safe center; overflow-y: auto; }
+.poca .back b { font-family: var(--display); font-weight: 400; font-size: 1.5rem; color: var(--pink); word-break: keep-all; }
 .poca .back p { margin: 0; font-size: 1rem; line-height: 1.55; word-break: keep-all; }
 .flip-hint { text-align: center; color: var(--ink2); font-size: .95rem; margin-top: 6px; }
 
@@ -376,7 +393,7 @@ img { display: block; max-width: 100%; }
 .tabs { display: flex; gap: 8px; }
 .tabs button { border: 3px solid var(--ink); background: var(--white); border-radius: 999px; padding: 6px 16px; font-family: var(--display); font-size: 1.05rem; min-height: 46px; }
 .tabs button.sel { background: var(--ink); color: var(--white); }
-.dex { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; max-width: 1100px; margin: 0 auto; }
+.dex { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; max-width: 1100px; margin: 0 auto; }
 .dex .poca { width: 100%; }
 .dex .poca .front .word { font-size: 1.2rem; }
 .dex .poca .back p { font-size: .88rem; }
@@ -429,6 +446,7 @@ img { display: block; max-width: 100%; }
   .hud-ch span { display: none; }
   .items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bins.timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bins.bins4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .order-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
@@ -438,6 +456,7 @@ img { display: block; max-width: 100%; }
   .bins.bins3, .bins.judge { grid-template-columns: 1fr; }
   .bins.flow { grid-template-columns: 1fr; }
   .bins.timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bins.bins2, .bins.bins4 { grid-template-columns: 1fr; }
   .fans { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .brow { grid-template-columns: 1fr; }
   .sched-ctrl { grid-template-columns: 1fr; }
@@ -673,7 +692,17 @@ const POCAS = {
   social:     { ch: 6, who: 'serin', word: '사회적 책임', def: '공정한 경쟁, 소비자 안전, 환경 보호처럼 기업이 사회의 한 구성원으로서 지켜야 할 책임이에요.' },
   ftc:        { ch: 6, who: 'ian',  word: '공정거래위원회', def: '기업들이 공정하게 경쟁하는지 살피고, 짜고 값을 올리는 담합 같은 일을 막는 국가 기관이에요.' },
   growth:     { ch: 7, who: 'serin', word: '경제성장', def: '한 나라에서 생산하는 물건과 서비스의 양이 늘어나는 거예요.' },
-  industry:   { ch: 7, who: 'yuha', word: '산업의 변화', def: '우리나라는 경공업에서 중화학 공업으로, 다시 첨단 산업과 서비스 산업으로 성장해 왔어요.' }
+  industry:   { ch: 7, who: 'yuha', word: '산업의 변화', def: '우리나라는 경공업에서 중화학 공업으로, 다시 첨단 산업과 서비스 산업으로 성장해 왔어요.' },
+  growthShadow:{ ch: 8, who: 'jisu', word: '경제성장의 그늘', def: '경제가 성장하면서 함께 생긴 문제예요. 환경 오염, 지역 격차, 소득 차이 등이 있어요.' },
+  commons:    { ch: 8, who: 'haneul', word: '공유지의 비극', def: '"나 하나쯤이야" 하는 마음이 모여, 모두 함께 쓰는 곳이 망가지는 일이에요.' },
+  together:   { ch: 8, who: 'oh', word: '함께 푸는 해결', def: '성장의 문제는 정부, 기업, 시민 단체, 개인이 저마다 할 일을 맡아 함께 풀어요.' },
+  trade:      { ch: 9, who: 'taeo', word: '무역', def: '나라와 나라 사이에 물건이나 서비스를 사고파는 거예요.' },
+  export:     { ch: 9, who: 'serin', word: '수출', def: '다른 나라에 물건이나 서비스를 파는 거예요. 앨범을 해외에 팔면 수출이에요.' },
+  import:     { ch: 9, who: 'yuha', word: '수입', def: '다른 나라에서 물건이나 서비스를 사 오는 거예요. 칩을 사 오면 수입이에요.' },
+  tradeReason:{ ch: 9, who: 'ian', word: '무역의 까닭', def: '나라마다 자원, 기술, 자연환경, 위치가 달라서 서로 잘 만드는 것을 사고팔아요.' },
+  interdep:   { ch: 10, who: 'na', word: '상호의존', def: '나라끼리 무역으로 기대어 있어서, 한 나라의 일이 다른 나라에도 영향을 주는 거예요.' },
+  coop:       { ch: 10, who: 'taeo', word: '협력', def: '나라와 나라, 기업과 기업이 어려운 문제를 함께 풀려고 서로 돕는 거예요.' },
+  globalComp: { ch: 10, who: 'serin', word: '국제 경쟁', def: '여러 나라의 기업이 세계 시장에서 더 좋은 물건과 서비스를 팔려고 겨루는 거예요.' }
 };
 
 const STORIES = {
@@ -706,7 +735,7 @@ const STORIES = {
     ['serin', 'angry', '그때 다짐했어요. 내가 데뷔하면 쓰레기가 남지 않는 앨범을 만들겠다고.'],
     ['serin', 'happy', '대표님이 그 다짐을 지켜 주셨네요. 고마워요. 이건 진심이에요.']
   ]},
-  oh: { title: '오실장과 삼촌의 첫 사무실', ch: 7, cond: '엔딩까지 가면 열려요.', lines: [
+  oh: { title: '오실장과 삼촌의 첫 사무실', ch: 10, cond: '엔딩까지 가면 열려요.', lines: [
     ['oh', 'normal', '대표님, 이 회사가 처음 생긴 날 얘기 해 드릴까요?'],
     ['oh', 'smile', '삼촌이랑 저 둘이서, 책상 하나에 의자 두 개로 시작했어요. 통장엔 지금보다 더 적은 돈이 있었고요.'],
     ['oh', 'smile', '삼촌이 늘 하던 말이 있어요. "회사는 돈으로 굴러가지만, 사람으로 버틴다."'],
@@ -718,7 +747,7 @@ const STORIES = {
 const CHAPTERS = [
 /* ---------------- 1장 ---------------- */
 {
-  no: 1, title: '우리는 누구랑 이어져 있을까?', topic: '시장, 가계, 기업',
+  no: 1, title: '우리는 누구랑 이어져 있을까?', topic: '시장, 가계, 기업', part: '생각 열기 · 탐구하기 1',
   nodes: [
     { type: 'scene', bg: 'street', label: '프롤로그', lines: [
       ['narr', '', '어느 날, 삼촌에게서 편지 한 통이 도착했습니다.'],
@@ -811,7 +840,7 @@ const CHAPTERS = [
 },
 /* ---------------- 2장 ---------------- */
 {
-  no: 2, title: '라이벌 등장! 티켓값은 누가 정하지?', topic: '시장 경제와 자유로운 경쟁',
+  no: 2, title: '라이벌 등장! 티켓값은 누가 정하지?', topic: '시장 경제와 자유로운 경쟁', part: '탐구하기 1',
   nodes: [
     { type: 'scene', bg: 'street', lines: [
       ['kang', 'smile', '아, 옆 건물 새 대표님이시구나. 저는 메가톤엔터 대표 강태산입니다.'],
@@ -876,7 +905,7 @@ const CHAPTERS = [
 },
 /* ---------------- 3장 ---------------- */
 {
-  no: 3, title: '하늘이의 용돈 3만 원', topic: '가계의 합리적 선택',
+  no: 3, title: '하늘이의 용돈 3만 원', topic: '가계의 합리적 선택', part: '탐구하기 1',
   nodes: [
     { type: 'scene', bg: 'room', lines: [
       ['narr', '', '이번 장에서는 잠시 팬 하늘이가 되어 봅니다.'],
@@ -950,7 +979,7 @@ const CHAPTERS = [
 },
 /* ---------------- 4장 ---------------- */
 {
-  no: 4, title: '첫 투자금 5천만 원', topic: '기업의 역할',
+  no: 4, title: '첫 투자금 5천만 원', topic: '기업의 역할', part: '탐구하기 1',
   nodes: [
     { type: 'scene', bg: 'office', lines: [
       ['oh', 'happy', '대표님! 5천만 원이에요! 이제 데뷔 준비를 제대로 할 수 있어요.'],
@@ -1026,7 +1055,7 @@ const CHAPTERS = [
 },
 /* ---------------- 5장 ---------------- */
 {
-  no: 5, title: '유하가 쓰러졌다', topic: '근로자의 권리',
+  no: 5, title: '유하가 쓰러졌다', topic: '근로자의 권리', part: '탐구하기 1',
   nodes: [
     { type: 'cut', img: 'cut_lab', lines: [
       ['narr', '', '데뷔 2주 전. 유하는 며칠째 감기에 걸렸지만 연습을 하루도 쉬지 않았습니다.']
@@ -1107,7 +1136,7 @@ const CHAPTERS = [
 },
 /* ---------------- 6장 ---------------- */
 {
-  no: 6, title: '달콤한 제안 세 개', topic: '기업의 자유와 사회적 책임',
+  no: 6, title: '달콤한 제안 세 개', topic: '기업의 자유와 사회적 책임', part: '탐구하기 1',
   nodes: [
     { type: 'scene', bg: 'office', lines: [
       ['narr', '', '데뷔를 앞두고 돈이 더 필요한 때, 대표 책상에 봉투 세 개가 도착했습니다.'],
@@ -1171,7 +1200,7 @@ const CHAPTERS = [
 },
 /* ---------------- 7장 ---------------- */
 {
-  no: 7, title: '데뷔 무대, 그리고 1년 뒤', topic: '경제성장',
+  no: 7, title: '데뷔 무대, 그리고 1년 뒤', topic: '경제성장', part: '탐구하기 2',
   nodes: [
     { type: 'scene', bg: 'stage', lines: [
       ['narr', '', '조명이 켜지고, 함성이 터졌습니다.'],
@@ -1241,7 +1270,265 @@ const CHAPTERS = [
     },
     { type: 'scene', bg: 'office', lines: [
       ['taeo', 'normal', '대표님, 그런데 다른 나라 팬이 우리 앨범을 사면 나라와 나라 사이엔 무슨 일이 생기는 거예요?'],
-      ['oh', 'smile', '그건… 다음 단원에서 알아봐요!']
+      ['oh', 'smile', '그건… 조금 뒤에 함께 알아봐요!']
+    ]},
+    { type: 'scene', bg: 'park', preview: true, lines: [
+      ['narr', '', '그날 밤, 공연장 앞 공원 사진 한 장이 인터넷에 올라왔습니다.'],
+      ['haneul', 'worried', '대표님, 공원 잔디가 쓰레기로 덮였어요. 사람들이 팬들 탓을 해요.']
+    ]},
+    { type: 'end' }
+  ]
+},
+/* ---------------- 8장 ---------------- */
+{
+  no: 8, title: '1년 뒤, 반짝이지 않는 것들', topic: '경제성장의 그늘과 해결', part: '탐구하기 2',
+  nodes: [
+    { type: 'scene', bg: 'office', lines: [
+      ['narr', '', '데뷔 1년 뒤, 반짝엔터는 몰라보게 커졌습니다.'],
+      ['oh', 'happy', '대표님, 이번 달 회사 수입이 1년 전보다 세 배나 늘었어요!'],
+      ['taeo', 'happy', '다른 나라 팬들도 우리 노래를 따라 불러요!'],
+      ['narr', '', '그런데 좋은 소식만 있는 건 아니었습니다.'],
+      ['jisu', 'worried', '대표님… 회사 수입은 세 배가 됐는데, 스태프 월급은 그대로예요.'],
+      ['ian', 'worried', '팬 게시판에도 걱정하는 글이 많이 올라왔어요.'],
+      ['oh', 'normal', '성장하면서 좋아진 점과 새로 생긴 문제를 먼저 나눠 볼까요?']
+    ]},
+    { type: 'mission', id: '8-1', kind: 'sort', title: '나눠 담기', who: 'oh', mood: 'normal',
+      prompt: '카드를 하나 누르고, 알맞은 상자를 눌러 담아 주세요.',
+      gauge: 'money', pocas: ['growthShadow'], layout: 'bins2',
+      bins: [{ id: 'up', label: '좋아진 점' }, { id: 'new', label: '새로 생긴 문제' }],
+      cards: [
+        { id: 'a', text: '직원이 5명에서 30명으로 늘었어요', ans: 'up', hint: '일자리가 늘어난 건 성장으로 좋아진 점이에요.' },
+        { id: 'b', text: '공연장 앞 공원이 쓰레기로 덮였어요', ans: 'new', hint: '환경이 더러워진 건 성장하면서 새로 생긴 문제예요.' },
+        { id: 'c', text: '멤버 가족의 생활이 넉넉해졌어요', ans: 'up', hint: '소득이 늘어 생활이 넉넉해진 건 좋아진 점이에요.' },
+        { id: 'd', text: '공연이 서울에서만 열려 다른 지역 팬은 보러 오기 어려워요', ans: 'new', hint: '사는 곳에 따라 누릴 수 있는 것이 달라진 건 새로 생긴 문제예요.' },
+        { id: 'e', text: '우리 노래가 다른 나라에도 알려졌어요', ans: 'up', hint: '노래가 세계로 퍼진 건 성장으로 좋아진 점이에요.' },
+        { id: 'f', text: '회사 수입은 세 배가 됐는데 스태프 월급은 그대로예요', ans: 'new', hint: '성장으로 번 돈이 골고루 나뉘지 않은 건 새로 생긴 문제예요.' },
+        { id: 'g', text: '일회용 응원 굿즈가 쌓여 버려져요', ans: 'new', hint: '버려지는 쓰레기가 늘어난 건 새로 생긴 환경 문제예요.' }
+      ],
+      ok: [['oh', 'smile', '성장하면 좋아지는 점도 많지만, 환경 오염이나 격차 같은 그늘도 생겨요.']]
+    },
+    { type: 'scene', bg: 'park', lines: [
+      ['narr', '', '다음 공연 날, {ceo} 대표는 공연장 앞 공원에 직접 가 보았습니다.'],
+      ['narr', '', '팬들이 잔디 위에 자리를 깔고, 나무마다 현수막을 묶어 두었습니다.'],
+      ['haneul', 'worried', '대표님, 잔디가 다 누렇게 죽었어요. 나무도 끈에 쓸려서 다쳤고요.'],
+      ['haneul', 'normal', '그런데 다들 "나 한 명쯤은 괜찮겠지" 하고 자리를 깔았대요.']
+    ]},
+    { type: 'mission', id: '8-2', kind: 'steps', title: '공원을 지켜라', gauge: 'rep', pocas: ['commons'],
+      steps: [
+        { kind: 'choice', who: 'haneul', mood: 'worried',
+          prompt: '공원 잔디는 왜 망가졌을까요?',
+          options: [
+            { text: '공원이 원래 너무 좁아서', why: [['haneul', 'normal', '공원 넓이는 1년 전과 똑같아요. 달라진 건 공원을 쓰는 모습이에요.']] },
+            { text: '저마다 "나 한 명쯤은 괜찮겠지" 하고, 모두 함께 쓰는 공원을 마구 써서', correct: true },
+            { text: '잔디가 원래 약해서', why: [['oh', 'normal', '잔디는 그동안 잘 자랐어요. 공연 날마다 망가지기 시작했죠.']] }
+          ] },
+        { kind: 'multi', who: 'oh', mood: 'normal',
+          prompt: '함께 쓰는 곳이 이렇게 망가지는 걸 "공유지의 비극"이라고 해요. 공원을 지킬 방법을 모두 골라 주세요. 알맞은 방법은 다 고르고, 알맞지 않은 방법은 빼야 성공이에요.',
+          options: [
+            { text: '공원 이용 규칙을 팬들과 함께 만들고 알린다', correct: true },
+            { text: '공원에 아무도 못 들어가게 막아 버린다', why: [['oh', 'worried', '공원은 모두가 함께 쓰는 곳이라 막는 건 답이 아니에요.']] },
+            { text: '공연이 끝나면 회사가 정리하는 사람을 둔다', correct: true },
+            { text: '팬클럽 이름으로 공원에 나무를 심는다', correct: true },
+            { text: '아무것도 하지 않는다', why: [['haneul', 'worried', '그대로 두면 잔디는 계속 망가지고, 팬들 이름도 나빠져요.']] }
+          ],
+          missing: [['oh', 'normal', '좋은 방법이 더 있어요. 팬과 회사가 저마다 할 수 있는 일을 떠올려 봐요.']] }
+      ],
+      ok: [
+        ['haneul', 'happy', '다음 공연 날엔 팬들이 쓰레기 봉투를 들고 왔어요! 잔디도 다시 자랄 거예요.'],
+        ['oh', 'smile', '함께 쓰는 곳은 함께 규칙을 정하고 지켜야 망가지지 않아요.']
+      ]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['ian', 'serious', '공원은 지켰지만, 우리 회사 힘만으로는 다 못 푸는 문제도 있어요.'],
+      ['oh', 'normal', '맞아요. 성장의 그늘은 정부, 기업, 시민 단체, 개인이 함께 풀어야 해요.'],
+      ['oh', 'smile', '아이디어 카드마다 누가 맡으면 좋을지 나눠 볼까요?']
+    ]},
+    { type: 'mission', id: '8-3', kind: 'sort', title: '누가 풀까', who: 'oh', mood: 'normal',
+      prompt: '아이디어 카드를 누르고, 그 일을 맡을 쪽의 상자를 눌러 담아 주세요.',
+      gauge: 'trust', pocas: ['together'], layout: 'bins4',
+      bins: [{ id: 'gov', label: '정부' }, { id: 'co', label: '기업' }, { id: 'ngo', label: '시민 단체' }, { id: 'me', label: '나(팬·개인)' }],
+      cards: [
+        { id: 'a', text: '최저임금과 근로 기준을 정하고 잘 지키는지 살펴본다', ans: 'gov', hint: '법과 기준을 정하고 살피는 건 정부가 하는 일이에요.' },
+        { id: 'b', text: '이익이 늘면 직원 임금과 복지도 올린다', ans: 'co', hint: '번 돈을 일한 사람과 나누는 건 기업이 할 일이에요.' },
+        { id: 'c', text: '일회용 굿즈 줄이기 캠페인을 연다', ans: 'ngo', hint: '시민들이 모인 단체가 캠페인으로 사람들의 생각을 바꿔요.' },
+        { id: 'd', text: '다 쓴 응원봉을 수거함에 낸다', ans: 'me', hint: '내가 쓴 물건을 잘 버리는 건 나 스스로 할 수 있는 일이에요.' },
+        { id: 'e', text: '서울 밖 여러 지역에서도 공연을 연다', ans: 'co', hint: '어디에서 공연할지는 기업이 정할 수 있어요.' },
+        { id: 'f', text: '지방에도 공연장이 생기도록 돕는다', ans: 'gov', hint: '여러 지역이 고루 발전하도록 돕는 건 정부의 일이에요.' },
+        { id: 'g', text: '공연 뒤 내 쓰레기는 내가 챙겨 간다', ans: 'me', hint: '내 쓰레기를 챙기는 건 나 스스로 할 수 있는 일이에요.' },
+        { id: 'h', text: '여러 시민이 모여 공연장 주변 환경을 지키는 활동을 벌인다', ans: 'ngo', hint: '시민들이 뜻을 모아 함께 활동하는 건 시민 단체의 일이에요.' }
+      ],
+      ok: [
+        ['oh', 'smile', '정부, 기업, 시민 단체, 개인이 저마다 할 일을 하면 성장의 그늘이 줄어요.'],
+        ['jisu', 'happy', '대표님, 이번 달부터 스태프 월급도 올랐어요! 고맙습니다!']
+      ]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['oh', 'smile', '숫자만 커지는 게 아니라, 모두가 함께 누려야 진짜 성장이에요.']
+    ]},
+    { type: 'scene', bg: 'office', preview: true, lines: [
+      ['narr', '', '해외 팬 3만 명이 기다리는 월드 투어 제안서가 도착했습니다.'],
+      ['taeo', 'happy', '대표님! 월드 투어래요! 여러 나라 팬들을 직접 만날 수 있어요!']
+    ]},
+    { type: 'end' }
+  ]
+},
+/* ---------------- 9장 ---------------- */
+{
+  no: 9, title: '월드 투어 계획서', topic: '무역의 뜻과 까닭', part: '탐구하기 2',
+  nodes: [
+    { type: 'scene', bg: 'office', lines: [
+      ['oh', 'normal', '월드 투어를 하려면 응원봉을 3만 개 더 만들고, 앨범도 다른 나라에 팔아야 해요.'],
+      ['na', 'normal', '응원봉은 저희 공장에 맡기세요. 다만 부품 몇 가지는 다른 나라에서 사 와야 해요.'],
+      ['oh', 'smile', '나라와 나라 사이에 물건이나 서비스를 사고파는 걸 무역이라고 해요.'],
+      ['oh', 'normal', '다른 나라에 파는 건 수출, 다른 나라에서 사 오는 건 수입이에요.']
+    ]},
+    { type: 'mission', id: '9-1', kind: 'sort', title: '수출일까 수입일까', who: 'oh', mood: 'normal',
+      prompt: '월드 투어 준비 카드를 누르고, 알맞은 상자에 담아 주세요. 다른 나라에 팔면 수출, 사 오면 수입이에요.',
+      gauge: 'money', pocas: ['trade', 'export', 'import'], layout: 'bins2',
+      bins: [{ id: 'ex', label: '수출' }, { id: 'im', label: '수입' }],
+      cards: [
+        { id: 'a', text: '💿 앨범 1만 장을 다른 나라 음반 가게에 판다', ans: 'ex', hint: '우리 앨범을 다른 나라에 파는 건 수출이에요.' },
+        { id: 'b', text: '💡 응원봉에 들어갈 작은 칩을 다른 나라에서 사 온다', ans: 'im', hint: '다른 나라 물건을 사 오는 건 수입이에요.' },
+        { id: 'c', text: '📺 해외 팬에게 공연 영상 서비스를 판다', ans: 'ex', hint: '눈에 보이지 않는 서비스도 다른 나라에 팔면 수출이에요.' },
+        { id: 'd', text: '🧪 응원봉 플라스틱 원료를 다른 나라에서 사 온다', ans: 'im', hint: '원료를 다른 나라에서 사 오는 것도 수입이에요.' },
+        { id: 'e', text: '💃 다른 나라 안무가에게 안무를 사 온다', ans: 'im', hint: '안무 같은 서비스도 다른 나라에서 사 오면 수입이에요.' }
+      ],
+      ok: [['oh', 'happy', '맞아요. 물건뿐 아니라 영상, 안무 같은 서비스도 나라끼리 사고팔아요.']]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['na', 'normal', '응원봉 하나에는 배터리 원료, LED 칩, 플라스틱 원료가 들어가요. 배송도 필요하고요.'],
+      ['ian', 'serious', '부품을 살 만한 나라를 네 곳 찾아 왔어요. 나라마다 잘하는 게 달라요.']
+    ]},
+    { type: 'mission', id: '9-2', kind: 'steps', title: '어느 나라에서 사 올까', gauge: 'trust', pocas: ['tradeReason'],
+      steps: [
+        { kind: 'sort', who: 'ian', mood: 'serious', layout: 'bins4',
+          prompt: '나라 카드를 누르고, 그 나라에서 사 오면 좋을 칸을 눌러 주세요.',
+          bins: [
+            { id: 'bat', label: '🔋 배터리 원료', cap: 1 },
+            { id: 'chip', label: '💡 LED 칩', cap: 1 },
+            { id: 'eco', label: '🌱 식물에서 뽑은 플라스틱 원료', cap: 1 },
+            { id: 'ship', label: '🚢 운송(배송)', cap: 1 }
+          ],
+          cards: [
+            { id: 'a', text: '테크노아: 땅은 좁지만 작은 칩을 만드는 기술이 뛰어나요', ans: 'chip', hint: '칩 만드는 기술이 뛰어난 테크노아에서 LED 칩을 사 와요.' },
+            { id: 'b', text: '포트빌: 큰 항구가 있어 여러 나라 물건이 모이고 나가요', ans: 'ship', hint: '큰 항구가 있는 포트빌은 물건을 실어 나르기 좋아요.' },
+            { id: 'c', text: '미네랄리아: 땅속에 광물이 많지만 공장이 적어요', ans: 'bat', hint: '광물이 많은 미네랄리아는 배터리 원료를 팔기 좋아요.' },
+            { id: 'd', text: '솔라랜드: 햇볕이 강하고 땅이 넓어 원료 작물이 잘 자라요', ans: 'eco', hint: '작물이 잘 자라는 솔라랜드는 식물로 플라스틱 원료를 만들 수 있어요.' }
+          ] },
+        { kind: 'sort', who: 'oh', mood: 'normal', layout: 'bins4',
+          prompt: '왜 그 나라에서 사 올까요? 까닭 카드를 알맞은 나라 칸에 담아 주세요.',
+          bins: [
+            { id: 'm', label: '미네랄리아 → 배터리 원료', cap: 1 },
+            { id: 't', label: '테크노아 → LED 칩', cap: 1 },
+            { id: 's', label: '솔라랜드 → 플라스틱 원료', cap: 1 },
+            { id: 'p', label: '포트빌 → 운송', cap: 1 }
+          ],
+          cards: [
+            { id: 'a', text: '위치가 좋아서', ans: 'p', hint: '포트빌은 큰 항구가 있는 좋은 위치 덕분이에요.' },
+            { id: 'b', text: '자원이 달라서', ans: 'm', hint: '미네랄리아는 땅속에 광물 자원이 많아요.' },
+            { id: 'c', text: '자연환경이 달라서', ans: 's', hint: '솔라랜드는 강한 햇볕과 넓은 땅 같은 자연환경 덕분이에요.' },
+            { id: 'd', text: '기술이 달라서', ans: 't', hint: '테크노아는 작은 칩을 만드는 기술이 뛰어나요.' }
+          ] }
+      ],
+      ok: [['ian', 'happy', '나라마다 자원, 기술, 자연환경, 위치가 달라서 잘 만드는 게 달라요. 그래서 무역을 해요.']]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['ian', 'serious', '그런데 대표님, 하나 궁금한 게 있어요.']
+    ]},
+    { type: 'mission', id: '9-3', kind: 'choice', title: '함정 문제', who: 'ian', mood: 'serious',
+      prompt: '"그냥 전부 우리나라에서 만들면 안 돼요? 왜 굳이 다른 나라와 사고팔아요?"',
+      gauge: 'fans', pocas: [],
+      options: [
+        { text: '다른 나라 물건은 무조건 나쁘니까, 사실은 안 사는 게 맞아요.', why: [['ian', 'serious', '테크노아 칩은 세계에서 손꼽히게 좋아요. 다른 나라 것이라고 나쁜 건 아니에요.']] },
+        { text: '무역은 큰 회사만 할 수 있어서, 우리 같은 회사는 못 해요.', why: [['oh', 'normal', '우리 회사도 앨범을 수출하고 칩을 수입해요. 작은 회사도 무역을 해요.']] },
+        { text: '나라마다 잘 만들 수 있는 것이 달라서, 서로 사고팔면 더 좋은 물건을 알맞은 값에 쓸 수 있어요.', correct: true }
+      ],
+      ok: [['ian', 'happy', '그렇구나. 우리나라에서 다 만들면 값은 비싸지고 품질은 떨어질 수도 있겠네요.']]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['oh', 'smile', '삼촌이 어릴 땐 우리나라가 가발과 옷을 만들어 다른 나라에 팔았대요.'],
+      ['oh', 'normal', '그 뒤로 반도체와 자동차를 팔았고, 이제는 노래와 드라마 같은 K-콘텐츠도 팔아요.'],
+      ['taeo', 'happy', '그럼 우리 노래도 수출품이네요! 왠지 어깨가 으쓱해요.']
+    ]},
+    { type: 'scene', bg: 'night', preview: true, lines: [
+      ['narr', '', '투어 2주 전, 테크노아에서 급한 소식이 왔습니다.'],
+      ['ian', 'worried', '대표님, 테크노아에서 연락이 왔어요. "칩 공장에 불이 났어요."']
+    ]},
+    { type: 'end' }
+  ]
+},
+/* ---------------- 10장 ---------------- */
+{
+  no: 10, title: '칩이 멈췄다!', topic: '상호의존과 경쟁', part: '탐구하기 2',
+  nodes: [
+    { type: 'scene', bg: 'office', lines: [
+      ['narr', '', '다행히 다친 사람은 없었지만, 테크노아의 칩 수출이 멈췄습니다.'],
+      ['na', 'normal', '대표님, 큰일이에요. 칩이 안 들어와서 응원봉 공장도 멈췄어요.'],
+      ['taeo', 'worried', '다른 나라 공장에 난 불 때문에 우리 응원봉까지 멈추다니요…'],
+      ['oh', 'worried', '투어는 2주 뒤예요. 먼저 이 일로 무엇을 알 수 있는지 생각해 봐요.']
+    ]},
+    { type: 'mission', id: '10-1', kind: 'choice', title: '무엇을 알 수 있을까', who: 'oh', mood: 'worried',
+      prompt: '테크노아 공장에 불이 나자 우리 응원봉 공장도 멈췄어요. 이 일로 무엇을 알 수 있을까요?',
+      gauge: 'trust', pocas: ['interdep'],
+      options: [
+        { text: '다른 나라에서 일어난 일은 우리 생활과 아무 상관이 없다', why: [['ian', 'worried', '그럼 우리 응원봉 공장은 왜 멈췄을까요? 상관이 있어요.']] },
+        { text: '나라와 나라는 무역으로 서로 기대어 있어서, 한 나라의 일이 다른 나라 생활에도 영향을 준다', correct: true },
+        { text: '무역을 하면 언제나 손해만 본다', why: [['oh', 'normal', '그동안 테크노아 칩 덕분에 좋은 응원봉을 만들었잖아요. 손해만 보는 건 아니에요.']] }
+      ],
+      ok: [['oh', 'smile', '맞아요. 이렇게 나라끼리 서로 기대어 사는 걸 상호의존이라고 해요.']]
+    },
+    { type: 'scene', bg: 'office', lines: [
+      ['serin', 'worried', '그럼 이제 어떻게 해요? 팬들은 응원봉을 기다리고 있어요.'],
+      ['oh', 'normal', '대표님, 위기를 넘길 대책을 세워 주세요.']
+    ]},
+    { type: 'mission', id: '10-2', kind: 'multi', title: '위기 대책', who: 'oh', mood: 'normal',
+      prompt: '알맞은 대책을 모두 골라 주세요. 좋은 대책은 다 고르고, 공정하지 않거나 무책임한 것은 빼야 성공이에요.',
+      gauge: 'rep', pocas: ['coop'],
+      options: [
+        { text: '칩을 사 올 수 있는 나라를 더 찾아 둔다', correct: true },
+        { text: '남은 칩을 몰래 비싸게 되판다', why: [['serin', 'angry', '어려울 때를 틈타 몰래 비싸게 파는 건 공정하지 않아요.']] },
+        { text: '우리 기술로 만들 수 있는 부품은 직접 만들어 본다', correct: true },
+        { text: '테크노아와 다시 일정을 맞춰 협력한다', correct: true },
+        { text: '테크노아 탓만 하고 투어를 취소한다', why: [['taeo', 'shy', '탓만 하면 아무것도 안 바뀌어요. 기다리는 팬들도 생각해 주세요.']] }
+      ],
+      missing: [['oh', 'normal', '좋은 대책이 더 있어요. 다른 나라, 우리 회사, 테크노아가 할 일을 떠올려 봐요.']],
+      ok: [
+        ['ian', 'happy', '테크노아가 고친 공장에서 만든 첫 칩을 우리에게 먼저 보내 준대요!'],
+        ['oh', 'smile', '어려울 때 서로 돕는 걸 협력이라고 해요. 서로 기대어 사니까 함께 풀어야죠.']
+      ]
+    },
+    { type: 'scene', bg: 'expo', lines: [
+      ['narr', '', '투어 첫 공연 사흘 전, 세계 콘텐츠 박람회가 열렸습니다.'],
+      ['taeo', 'normal', '대표님, 저기 해외 기획사 "스타웨이브" 부스예요. 줄이 엄청 길어요!'],
+      ['kang', 'smirk', '오랜만이에요, {ceo} 대표님. 저 부스를 이길 방법이야 많죠. 정정당당하지 않아도요.'],
+      ['serin', 'angry', '우리는 우리 방식으로 겨룰 거예요. 대표님, 어떻게 할지 정해 주세요.']
+    ]},
+    { type: 'mission', id: '10-3', kind: 'steps', title: '세계 콘텐츠 박람회', gauge: 'fans', pocas: ['globalComp'],
+      steps: [
+        { kind: 'multi', who: 'serin', mood: 'angry',
+          prompt: '스타웨이브와 겨룰 방법을 모두 골라 주세요. 좋은 방법은 다 고르고, 반칙은 빼야 성공이에요.',
+          options: [
+            { text: '노래와 무대의 품질을 더 높인다', correct: true },
+            { text: '스타웨이브 부스를 몰래 방해한다', why: [['serin', 'angry', '그건 강태산 대표님이 쓰던 반칙 수법이잖아요. 우리는 실력으로 겨뤄요!']] },
+            { text: '여러 나라 말로 자막을 붙인다', correct: true },
+            { text: '친환경 응원봉으로 다른 기획사와 차별화한다', correct: true }
+          ],
+          missing: [['oh', 'normal', '좋은 방법이 더 있어요. 해외 팬들이 무엇을 반가워할지 떠올려 봐요.']] },
+        { kind: 'choice', who: 'oh', mood: 'smile',
+          prompt: '나라와 나라, 기업과 기업이 경쟁하면 팬(소비자)에게는 무엇이 좋을까요?',
+          options: [
+            { text: '한 회사만 남아서 고를 걱정이 없다', why: [['oh', 'normal', '한 회사만 남으면 고를 수 있는 것이 줄어요. 2장의 경쟁을 떠올려 봐요.']] },
+            { text: '더 좋은 콘텐츠를 더 알맞은 값에 즐길 수 있다', correct: true },
+            { text: '경쟁하면 값이 무조건 비싸진다', why: [['oh', 'normal', '경쟁하면 오히려 더 알맞은 값으로 팔려고 노력해요.']] }
+          ] }
+      ],
+      ok: [['oh', 'happy', '맞아요. 세계 시장에서 겨루는 국제 경쟁 덕분에 팬들은 더 좋은 콘텐츠를 만나요.']]
+    },
+    { type: 'scene', bg: 'stage', lines: [
+      ['narr', '', '그리고 월드 투어 첫날 밤.'],
+      ['narr', '', '테크노아 칩이 들어간 친환경 응원봉 3만 개가 객석에서 한꺼번에 빛났습니다.'],
+      ['serin', 'happy', '여러 나라에서 와 주신 여러분, 반가워요! 우리는 {group}입니다!'],
+      ['oh', 'smile', '대표님, 여기까지 오는 길에 정말 많은 사람과 나라가 함께했네요.']
     ]},
     { type: 'ending' }
   ]
@@ -1250,22 +1537,22 @@ const CHAPTERS = [
 
 const ENDINGS = {
   hidden: { title: '숨은 엔딩 · 모두가 웃는 무대', bg: 'stage', lines: [
-    ['narr', '', '{group}의 첫 단독 콘서트 날.'],
+    ['narr', '', '{group}의 월드 투어 마지막 공연 날.'],
     ['narr', '', '무대 위에는 멤버 네 명뿐 아니라 지수 씨와 오실장님이, 맨 앞줄에는 하늘이가 함께 웃고 있었습니다.'],
-    ['serin', 'happy', '쓰레기 없는 앨범도, 쉬는 날도, 공정한 티켓값도 다 지켰어요. 이게 우리 무대예요.'],
+    ['serin', 'happy', '쓰레기 없는 앨범도, 쉬는 날도, 공정한 경쟁도, 깨끗한 공원도 다 지켰어요.'],
     ['oh', 'happy', '대표님, 삼촌이 보셨으면 정말 기뻐하셨을 거예요.']
   ]},
-  big: { title: '대박 데뷔', bg: 'stage', lines: [
-    ['narr', '', '공연장이 꽉 찼습니다. 응원봉 불빛이 바다처럼 출렁였어요.'],
-    ['taeo', 'happy', '대표님! 해외 공연 초대장이 세 장이나 왔어요!'],
+  big: { title: '대박 월드 투어', bg: 'stage', lines: [
+    ['narr', '', '공연장이 꽉 찼습니다. 여러 나라 팬들의 응원봉 불빛이 바다처럼 출렁였어요.'],
+    ['taeo', 'happy', '대표님! 다음 투어 초대장이 세 나라에서나 왔어요!'],
     ['serin', 'happy', '대표님이 아니었으면 여기까지 못 왔을 거예요.']
   ]},
-  ok: { title: '무사 데뷔', bg: 'stage', lines: [
+  ok: { title: '무사 월드 투어', bg: 'stage', lines: [
     ['narr', '', '작지만 따뜻한 공연장. 객석 곳곳에서 응원봉이 반짝였습니다.'],
-    ['ian', 'happy', '대표님, 우리 진짜 데뷔했어요. 이제 시작이에요.'],
+    ['ian', 'happy', '대표님, 우리 진짜 월드 투어를 해냈어요. 이제 시작이에요.'],
     ['oh', 'smile', '다시 해 보면 더 큰 무대가 기다리고 있을지도 몰라요.']
   ]},
-  low: { title: '아슬아슬 데뷔', bg: 'stage', lines: [
+  low: { title: '아슬아슬 월드 투어', bg: 'stage', lines: [
     ['narr', '', '빈자리가 많았습니다. 그래도 맨 앞줄에서 하늘이가 응원봉을 힘껏 흔들고 있었어요.'],
     ['haneul', 'happy', '{group} 최고! 나는 끝까지 응원할 거야!'],
     ['oh', 'smile', '대표님, 다시 하면 다른 엔딩이 열려요. 틀린 미션을 떠올려 보세요.']
@@ -1466,7 +1753,7 @@ function renderSelect() {
     <div class="chapters">${CHAPTERS.map(ch => {
       const st = chapterStatus(ch); const now = S.cur && S.cur.ch === ch.no && !st.finished;
       return `<button class="chap ${st.finished ? 'done' : now ? 'now' : ''}" data-ch="${ch.no}">
-        <span class="no">${ch.no}장 · ${ch.no}차시</span><b>${esc(ch.title)}</b><small>${esc(ch.topic)}</small>
+        <span class="no">${ch.no}장 · ${esc(ch.part || ch.no + '차시')}</span><b>${esc(ch.title)}</b><small>${esc(ch.topic)}</small>
         <span class="st">${st.finished ? '✓ 다 했어요' : now ? '▶ 하는 중' : '아직 안 했어요'} · 포카 ${st.got}/${st.pocas}</span></button>`;
     }).join('')}</div></div>`;
   $app.querySelector('[data-back]').onclick = renderTitle;
@@ -1506,7 +1793,7 @@ function playAt(chNo, nodeIdx) {
     return renderMission(ch, node);
   }
   if (node.type === 'end') return renderChapterEnd(ch, node);
-  if (node.type === 'ending') return renderEnding();
+  if (node.type === 'ending') return renderEnding(ch);
 }
 function next() { playAt(CUR.ch, CUR.node + 1); }
 
@@ -1931,7 +2218,7 @@ function renderChapterEnd(ch, node) {
   S.cur = nextCh ? { ch: nextCh.no, node: 0 } : null;
   const got = ch.nodes.filter(n => n.type === 'mission').flatMap(n => (S.res[n.id] && S.res[n.id].done) ? n.pocas : []);
   $app.innerHTML = hudHTML(ch) + `<main class="stage bg-stage"><div class="mission-wrap"><section class="sheet endcard">
-    <div class="mno" style="font-family:var(--display);color:var(--pink);font-size:1.1rem">${ch.no}차시 · ${esc(ch.topic)}</div>
+    <div class="mno" style="font-family:var(--display);color:var(--pink);font-size:1.1rem">${esc(ch.part || ch.no + '차시')} · ${esc(ch.topic)}</div>
     <h2>${ch.no}장 끝!</h2>
     <p style="font-size:1.1rem">이번 장에서 모은 개념 포카 ${got.length}장. 카드를 눌러 뜻을 다시 확인해 보세요.</p>
     <div class="mini-pocas">${got.map(p => pocaHTML(p)).join('')}</div>
@@ -1949,22 +2236,22 @@ function playStory(id) {
   talkModal({ title: '숨은 이야기 · ' + esc(st.title), lines: st.lines, lastBtn: '닫기' });
 }
 
-/* ===================== 엔딩 ===================== */
+/* ===================== 엔딩 (마지막 장을 마친 뒤) ===================== */
+const firstTry = id => S.res[id] && S.res[id].wrongs === 0;
 function endingKey() {
   const g = gaugeVals(); const vals = Object.values(g); const avg = vals.reduce((a, b) => a + b, 0) / 4;
-  const clean = !S.flags.nightShift && !S.flags.collusion && S.res['5-2'] && S.res['5-2'].wrongs === 0 && S.res['6-1'] && S.res['6-1'].wrongs === 0 && S.res['6-2'] && S.res['6-2'].wrongs === 0;
+  const clean = !S.flags.nightShift && !S.flags.collusion && ['5-2', '6-1', '6-2', '8-2', '10-2'].every(firstTry);
   if (clean && vals.every(v => v >= 80)) return 'hidden';
   if (avg >= 85) return 'big';
   if (avg >= 58) return 'ok';
   return 'low';
 }
-function renderEnding() {
+function renderEnding(ch = CHAPTERS[CHAPTERS.length - 1]) {
   const key = endingKey(); const e = ENDINGS[key];
   S.ending = { key, date: new Date().toISOString() };
-  if (!S.done.includes(7)) S.done.push(7);
+  if (!S.done.includes(ch.no)) S.done.push(ch.no);
   if (!S.stories.includes('oh')) S.stories.push('oh');
   S.cur = null;
-  const ch = CHAPTERS[6];
   renderScene(ch, { type: 'scene', bg: e.bg, label: e.title, lines: e.lines }, () => renderResult(true));
 }
 function renderResult(fresh) {

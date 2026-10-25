@@ -192,7 +192,7 @@ function renderSelect() {
     <div class="chapters">${CHAPTERS.map(ch => {
       const st = chapterStatus(ch); const now = S.cur && S.cur.ch === ch.no && !st.finished;
       return `<button class="chap ${st.finished ? 'done' : now ? 'now' : ''}" data-ch="${ch.no}">
-        <span class="no">${ch.no}장 · ${ch.no}차시</span><b>${esc(ch.title)}</b><small>${esc(ch.topic)}</small>
+        <span class="no">${ch.no}장 · ${esc(ch.part || ch.no + '차시')}</span><b>${esc(ch.title)}</b><small>${esc(ch.topic)}</small>
         <span class="st">${st.finished ? '✓ 다 했어요' : now ? '▶ 하는 중' : '아직 안 했어요'} · 포카 ${st.got}/${st.pocas}</span></button>`;
     }).join('')}</div></div>`;
   $app.querySelector('[data-back]').onclick = renderTitle;
@@ -232,7 +232,7 @@ function playAt(chNo, nodeIdx) {
     return renderMission(ch, node);
   }
   if (node.type === 'end') return renderChapterEnd(ch, node);
-  if (node.type === 'ending') return renderEnding();
+  if (node.type === 'ending') return renderEnding(ch);
 }
 function next() { playAt(CUR.ch, CUR.node + 1); }
 
@@ -657,7 +657,7 @@ function renderChapterEnd(ch, node) {
   S.cur = nextCh ? { ch: nextCh.no, node: 0 } : null;
   const got = ch.nodes.filter(n => n.type === 'mission').flatMap(n => (S.res[n.id] && S.res[n.id].done) ? n.pocas : []);
   $app.innerHTML = hudHTML(ch) + `<main class="stage bg-stage"><div class="mission-wrap"><section class="sheet endcard">
-    <div class="mno" style="font-family:var(--display);color:var(--pink);font-size:1.1rem">${ch.no}차시 · ${esc(ch.topic)}</div>
+    <div class="mno" style="font-family:var(--display);color:var(--pink);font-size:1.1rem">${esc(ch.part || ch.no + '차시')} · ${esc(ch.topic)}</div>
     <h2>${ch.no}장 끝!</h2>
     <p style="font-size:1.1rem">이번 장에서 모은 개념 포카 ${got.length}장. 카드를 눌러 뜻을 다시 확인해 보세요.</p>
     <div class="mini-pocas">${got.map(p => pocaHTML(p)).join('')}</div>
@@ -675,22 +675,22 @@ function playStory(id) {
   talkModal({ title: '숨은 이야기 · ' + esc(st.title), lines: st.lines, lastBtn: '닫기' });
 }
 
-/* ===================== 엔딩 ===================== */
+/* ===================== 엔딩 (마지막 장을 마친 뒤) ===================== */
+const firstTry = id => S.res[id] && S.res[id].wrongs === 0;
 function endingKey() {
   const g = gaugeVals(); const vals = Object.values(g); const avg = vals.reduce((a, b) => a + b, 0) / 4;
-  const clean = !S.flags.nightShift && !S.flags.collusion && S.res['5-2'] && S.res['5-2'].wrongs === 0 && S.res['6-1'] && S.res['6-1'].wrongs === 0 && S.res['6-2'] && S.res['6-2'].wrongs === 0;
+  const clean = !S.flags.nightShift && !S.flags.collusion && ['5-2', '6-1', '6-2', '8-2', '10-2'].every(firstTry);
   if (clean && vals.every(v => v >= 80)) return 'hidden';
   if (avg >= 85) return 'big';
   if (avg >= 58) return 'ok';
   return 'low';
 }
-function renderEnding() {
+function renderEnding(ch = CHAPTERS[CHAPTERS.length - 1]) {
   const key = endingKey(); const e = ENDINGS[key];
   S.ending = { key, date: new Date().toISOString() };
-  if (!S.done.includes(7)) S.done.push(7);
+  if (!S.done.includes(ch.no)) S.done.push(ch.no);
   if (!S.stories.includes('oh')) S.stories.push('oh');
   S.cur = null;
-  const ch = CHAPTERS[6];
   renderScene(ch, { type: 'scene', bg: e.bg, label: e.title, lines: e.lines }, () => renderResult(true));
 }
 function renderResult(fresh) {

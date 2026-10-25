@@ -1,4 +1,5 @@
-"""처음부터 엔딩까지 자동으로 플레이. mode=perfect 이면 모두 한 번에, mode=messy 이면 미션마다 한 번씩 틀린 뒤 맞힌다."""
+"""프롤로그부터 10장, 엔딩까지 자동으로 플레이. mode=perfect 이면 모두 한 번에, mode=messy 이면 미션마다 한 번씩 틀린 뒤 맞힌다.
+끝까지 가지 못했거나 오류가 나면 FAIL을 찍고 1로 끝난다."""
 import sys, os, asyncio, json, pathlib
 from playwright.async_api import async_playwright
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,7 +106,7 @@ async def main():
         await pg.goto(pathlib.Path(ROOT, 'index.html').as_uri()); await pg.wait_for_timeout(300)
         await click(pg, '[data-go=new]')
         seen=set(); n=0
-        for it in range(3000):
+        for it in range(8000):
             if errs: break
             if await pg.query_selector('#ceo'):
                 await pg.fill('#ceo','테스트'); await pg.fill('#grp','해온'); await click(pg,'#go'); continue
@@ -119,7 +120,7 @@ async def main():
             if await pg.query_selector('.endcard'):
                 h2 = await pg.text_content('.endcard h2'); 
                 if h2 not in seen:
-                    seen.add(h2); await pg.screenshot(path=OUT+TAG+'_end_'+h2[0]+'.png')
+                    seen.add(h2); await pg.screenshot(path=OUT+TAG+'_end_'+h2.split('장')[0]+'.png')
                 nx = await pg.query_selector('#nx')
                 if nx: await nx.click(); await pg.wait_for_timeout(150); continue
             if await pg.query_selector('.mno') and await pg.query_selector('.m-body'):
@@ -136,8 +137,18 @@ async def main():
                     seen.add('s'+str(n)); await pg.screenshot(path=OUT+TAG+f'_scene{n:04d}.png')
                 continue
             await pg.wait_for_timeout(100)
-        state = await pg.evaluate('() => ({g: gaugeVals(), pocas: ownedPocas().size, first: firstTryCount(), ending: S.ending && S.ending.key, stories: S.stories, flags: S.flags})')
+        state = await pg.evaluate('() => ({g: gaugeVals(), pocas: ownedPocas().size, pocaTotal: POCA_IDS.length, first: firstTryCount(), missions: TOTAL_MISSIONS, chapters: CHAPTERS.length, done: S.done.slice().sort((a, b) => a - b), ending: S.ending && S.ending.key, stories: S.stories, flags: S.flags})')
         print(json.dumps(state, ensure_ascii=False))
         print('errors:', errs)
         await b.close()
-asyncio.run(main())
+    fails = []
+    if errs: fails.append('페이지 오류')
+    if state['done'] != list(range(1, state['chapters'] + 1)): fails.append('끝내지 못한 장이 있음')
+    if not state['ending']: fails.append('엔딩에 닿지 못함')
+    if MODE == 'perfect':
+        if state['pocas'] != state['pocaTotal']: fails.append('포카를 다 모으지 못함')
+        if state['first'] != state['missions']: fails.append('한 번에 맞히지 못한 미션이 있음')
+        if state['ending'] != 'hidden': fails.append('숨은 엔딩이 아님')
+    print('FAIL: ' + ', '.join(fails) if fails else 'PASS')
+    return 1 if fails else 0
+sys.exit(asyncio.run(main()))

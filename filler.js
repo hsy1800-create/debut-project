@@ -25,6 +25,7 @@
       else if (k === 'p') c.value.push(para(rich(t, { fontSizeCode: 'fs16' })));
       else if (k === 'li') { const pre = /^[①-⑳]/.test(t) ? '' : '• '; c.value.push(para(rich(pre + t, { fontSizeCode: 'fs16' }))); }
       else if (k === 'n') c.value.push(para([tn(t, { fontSizeCode: 'fs15', fontColor: '#6b6470' })]));
+      else if (k === 'link') { const n = tn(t, { bold: true, fontSizeCode: 'fs16', fontColor: '#d33159' }); n.link = { '@ctype': 'urlLink', url: b[2] }; c.value.push(para([n])); }
     });
     flush();
     return { documentId: '', document: { language: 'ko-KR', theme: 'default', version: '2.9.0', components: comps } };
